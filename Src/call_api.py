@@ -1,18 +1,27 @@
+#src/call_api.py
+
 import requests
 
-# URL de l'API
-contract_name = 'nancy'
-api_key = '06f91bb37651caa12b9199add8c0a32d07c0a268'
-url = f'https://api.jcdecaux.com/vls/v1/stations?contract={contract_name}&apiKey={api_key}'
+def get_bike_station_data(contract_name, api_key):
+    # URL de l'API
+    url = f'https://api.jcdecaux.com/vls/v1/stations?contract={contract_name}&apiKey={api_key}'
+    
+    try:
+        # Faire un appel GET
+        response = requests.get(url)
+        response.raise_for_status()  # Vérifier les erreurs HTTP
+        
+        # Si succès, retourner les données JSON
+        data = response.json()
+        return data
+    except requests.exceptions.HTTPError as http_err:
+        print(f"Erreur HTTP: {http_err}")
+    except requests.exceptions.ConnectionError:
+        print("Erreur de connexion: Impossible de se connecter au serveur JCDecaux.")
+    except requests.exceptions.Timeout:
+        print("Erreur de délai d'attente: Le serveur n'a pas répondu à temps.")
+    except requests.exceptions.RequestException as err:
+        print(f"Erreur: {err}")
+    return None
 
-# Faire un appel GET
-response = requests.get(url)
 
-# Vérifier si l'appel a réussi
-if response.status_code == 200:
-    # Si succès, afficher les données
-    data = response.json()  # Si l'API renvoie du JSON
-    print(data)
-else:
-    # Sinon, afficher le code d'erreur
-    print(f"Erreur {response.status_code}")
