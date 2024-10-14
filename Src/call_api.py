@@ -13,7 +13,7 @@ def call_api(city):
     if response.status_code == 200:
         # Si succès, afficher les données
         data = response.json()  # Si l'API renvoie du JSON
-        print(data)
+        # print(data)
     else:
         # Sinon, afficher le code d'erreur
         print(f"Erreur {response.status_code}")
