@@ -1,5 +1,3 @@
-
-#src/balance_analysis.py
 import pandas as pd
 
 # Classification des stations de vélos

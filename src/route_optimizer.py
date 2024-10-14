@@ -1,5 +1,3 @@
-#src/route_optimizer.py
-
 import networkx as nx
 import osmnx as ox
 
