@@ -3,8 +3,10 @@
 import pandas as pd
 import sys
 import os
+import streamlit as st  # Importer Streamlit pour accéder aux secrets
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.call_api import get_bike_station_data
+
 
 def load_bike_station_data() -> pd.DataFrame:
     """
@@ -16,7 +18,7 @@ def load_bike_station_data() -> pd.DataFrame:
         pd.DataFrame: DataFrame contenant les données des stations avec latitude et longitude.
     """
     contract_name = 'nancy'
-    api_key = '06f91bb37651caa12b9199add8c0a32d07c0a268'  # Votre clé API intégrée
+    api_key = st.secrets["JCDECAUX_API_KEY"]  # Récupérer la clé API depuis secrets.toml
     
     data = get_bike_station_data(contract_name, api_key)
     if data:
