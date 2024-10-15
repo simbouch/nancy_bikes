@@ -4,7 +4,7 @@
 
 This project is a Streamlit-based web application designed to help manage the bike stations in Nancy, France. It offers real-time visualization of the bike stations, highlighting those that are overstocked or understocked, and provides an optimized route for rebalancing bikes between stations. 
 
-<img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/stan.jpg" width="850"/>
+<img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/screenshot.png" width="850"/>
 
 ## Features
 
