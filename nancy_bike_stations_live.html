@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_ceabf1edf52c4b363fc57f5be6beea0a {
+                #map_3b327f5b7fbfa9cba5d9661c942326e6 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,18 +42,18 @@
     <div style='position: fixed; top: 10px; left: 10px; width: 300px; background-color: white; padding: 10px; z-index: 9999;'>
         <h4><b>Statistiques des stations de vélos</b></h4>
         <ul>
-            <li><b>Total vélos :</b> 223</li>
-            <li><b>Total places libres :</b> 438 / 661</li>
+            <li><b>Total vélos :</b> 226</li>
+            <li><b>Total places libres :</b> 434 / 660</li>
         </ul> <br>
 
         <h4><b>Infos équilibrage</b></h4>
         <ul>
             <li><b>Total stations :</b> 36</li>
-            <li><b>Vélos à redistribuer :</b> 50</li>
-            <li><b>Stations à vider :</b> 7 / 36</li>
+            <li><b>Vélos à redistribuer :</b> 37</li>
+            <li><b>Stations à vider :</b> 5 / 36</li>
             <li><b>Stations pleines :</b> 0 / 36</li>
-            <li><b>Stations à remplir :</b> 21 / 36</li>
-            <li><b>Stations vides :</b> 0 / 36</li> <br>
+            <li><b>Stations à remplir :</b> 12 / 36</li>
+            <li><b>Stations vides :</b> 4 / 36</li> <br>
         </ul>
 
         <h4><b>Redistribution</b></h4>
@@ -65,14 +65,14 @@
         </ul>
     </div>
     
-            <div class="folium-map" id="map_ceabf1edf52c4b363fc57f5be6beea0a" ></div>
+            <div class="folium-map" id="map_3b327f5b7fbfa9cba5d9661c942326e6" ></div>
         
 </body>
 <script>
     
     
-            var map_ceabf1edf52c4b363fc57f5be6beea0a = L.map(
-                "map_ceabf1edf52c4b363fc57f5be6beea0a",
+            var map_3b327f5b7fbfa9cba5d9661c942326e6 = L.map(
+                "map_3b327f5b7fbfa9cba5d9661c942326e6",
                 {
                     center: [48.692054, 6.184417],
                     crs: L.CRS.EPSG3857,
@@ -86,982 +86,982 @@
 
         
     
-            var tile_layer_b6c57045d1087b59b24bdc44266d5beb = L.tileLayer(
+            var tile_layer_83bb2fa70c6ff21612d6d811ba8db5c7 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_b6c57045d1087b59b24bdc44266d5beb.addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            tile_layer_83bb2fa70c6ff21612d6d811ba8db5c7.addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var marker_fcfb772fa0c10a81807e10eaa10f8726 = L.marker(
+            var marker_80a23aac82a00517336cfeb1efc62a7b = L.marker(
                 [48.662356, 6.173442],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_0aefc45a7d1ae978e1529273a3212232 = L.AwesomeMarkers.icon(
+            var icon_3fd0e4256da8695215bdb4e1c137efd5 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_fcfb772fa0c10a81807e10eaa10f8726.setIcon(icon_0aefc45a7d1ae978e1529273a3212232);
+            marker_80a23aac82a00517336cfeb1efc62a7b.setIcon(icon_3fd0e4256da8695215bdb4e1c137efd5);
         
     
-        var popup_39bdee889d187de34d717481df8e18fc = L.popup({"maxWidth": 300});
+        var popup_2346f9a5e6c79092caa9ead44f8712d9 = L.popup({"maxWidth": 300});
 
         
             
-                var html_97eff2ea3132321e20540b0e3148ccda = $(`<div id="html_97eff2ea3132321e20540b0e3148ccda" style="width: 100.0%; height: 100.0%;">     <b>NATIONS</b><br>     <br>     <b>Stands utilisés:</b> 1 / 15<br>     <i>14 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_39bdee889d187de34d717481df8e18fc.setContent(html_97eff2ea3132321e20540b0e3148ccda);
+                var html_97cb50013dfe65a25914cdcdcd57d28f = $(`<div id="html_97cb50013dfe65a25914cdcdcd57d28f" style="width: 100.0%; height: 100.0%;">     <b>NATIONS</b><br>     <br>     <b>Stands utilisés:</b> 1 / 15<br>     <i>14 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_2346f9a5e6c79092caa9ead44f8712d9.setContent(html_97cb50013dfe65a25914cdcdcd57d28f);
             
         
 
-        marker_fcfb772fa0c10a81807e10eaa10f8726.bindPopup(popup_39bdee889d187de34d717481df8e18fc)
+        marker_80a23aac82a00517336cfeb1efc62a7b.bindPopup(popup_2346f9a5e6c79092caa9ead44f8712d9)
         ;
 
         
     
     
-            var marker_ce6d52e7f412b00e453a9884d9b282ee = L.marker(
+            var marker_ae429fc9ca0896c6242a030b66fab85e = L.marker(
                 [48.666721193896, 6.16661978303466],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_9df532cefa7067750a93765271c5f825 = L.AwesomeMarkers.icon(
+            var icon_993c9852a0c6f12c5123f53351559bc1 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
             );
-            marker_ce6d52e7f412b00e453a9884d9b282ee.setIcon(icon_9df532cefa7067750a93765271c5f825);
+            marker_ae429fc9ca0896c6242a030b66fab85e.setIcon(icon_993c9852a0c6f12c5123f53351559bc1);
         
     
-        var popup_6885faa1490a25150ac91bc4b92f11e1 = L.popup({"maxWidth": 300});
+        var popup_21cd6db1b4b071585bdc09e2a5dd1b16 = L.popup({"maxWidth": 300});
 
         
             
-                var html_838ceeb8d05eab4c68b4b8f2070e244f = $(`<div id="html_838ceeb8d05eab4c68b4b8f2070e244f" style="width: 100.0%; height: 100.0%;">     <b>VELODROME (CB)</b><br>     <br>     <b>Stands utilisés:</b> 20 / 24<br>     <i>4 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 8<br></div>`)[0];
-                popup_6885faa1490a25150ac91bc4b92f11e1.setContent(html_838ceeb8d05eab4c68b4b8f2070e244f);
+                var html_eb3d377cc9272d29d894dbd08db6fa18 = $(`<div id="html_eb3d377cc9272d29d894dbd08db6fa18" style="width: 100.0%; height: 100.0%;">     <b>VELODROME (CB)</b><br>     <br>     <b>Stands utilisés:</b> 22 / 24<br>     <i>2 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 10<br></div>`)[0];
+                popup_21cd6db1b4b071585bdc09e2a5dd1b16.setContent(html_eb3d377cc9272d29d894dbd08db6fa18);
             
         
 
-        marker_ce6d52e7f412b00e453a9884d9b282ee.bindPopup(popup_6885faa1490a25150ac91bc4b92f11e1)
+        marker_ae429fc9ca0896c6242a030b66fab85e.bindPopup(popup_21cd6db1b4b071585bdc09e2a5dd1b16)
         ;
 
         
     
     
-            var marker_8cc86d0c37e2d54855db60e3dec04526 = L.marker(
+            var marker_c481c2c8dfccaddf5fbad3d334ef5d3d = L.marker(
                 [48.6924654452072, 6.18340055389445],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_3c8f6f85304b443b07ec5dcf59ac4052 = L.AwesomeMarkers.icon(
+            var icon_442a01a85689f6f9f2ade0f4f55cd780 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_8cc86d0c37e2d54855db60e3dec04526.setIcon(icon_3c8f6f85304b443b07ec5dcf59ac4052);
+            marker_c481c2c8dfccaddf5fbad3d334ef5d3d.setIcon(icon_442a01a85689f6f9f2ade0f4f55cd780);
         
     
-        var popup_10c4ea63b161b33d09c389d1d3de7f26 = L.popup({"maxWidth": 300});
+        var popup_938f2d986f81a0bacd68f3148d287bf9 = L.popup({"maxWidth": 300});
 
         
             
-                var html_0e79781f37b0ccacf44f97d530ac9cad = $(`<div id="html_0e79781f37b0ccacf44f97d530ac9cad" style="width: 100.0%; height: 100.0%;">     <b>DOMINICAINS - FOURIER (CB)</b><br>     <br>     <b>Stands utilisés:</b> 3 / 25<br>     <i>22 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_10c4ea63b161b33d09c389d1d3de7f26.setContent(html_0e79781f37b0ccacf44f97d530ac9cad);
+                var html_aab356a88f9254a7adde8f59711c7305 = $(`<div id="html_aab356a88f9254a7adde8f59711c7305" style="width: 100.0%; height: 100.0%;">     <b>DOMINICAINS - FOURIER (CB)</b><br>     <br>     <b>Stands utilisés:</b> 3 / 25<br>     <i>22 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_938f2d986f81a0bacd68f3148d287bf9.setContent(html_aab356a88f9254a7adde8f59711c7305);
             
         
 
-        marker_8cc86d0c37e2d54855db60e3dec04526.bindPopup(popup_10c4ea63b161b33d09c389d1d3de7f26)
+        marker_c481c2c8dfccaddf5fbad3d334ef5d3d.bindPopup(popup_938f2d986f81a0bacd68f3148d287bf9)
         ;
 
         
     
     
-            var marker_2356d4f5b8f7586293f64efbeeceedc4 = L.marker(
+            var marker_ea5c58c8dd837546a7ac78fce428898d = L.marker(
                 [48.684954, 6.154908],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_eef77ac0608a72371c57fa2a96bd1279 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_e4b8f1fb0b40fa3c4ca3c7deb79b58c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_2356d4f5b8f7586293f64efbeeceedc4.setIcon(icon_eef77ac0608a72371c57fa2a96bd1279);
+            marker_ea5c58c8dd837546a7ac78fce428898d.setIcon(icon_e4b8f1fb0b40fa3c4ca3c7deb79b58c8);
         
     
-        var popup_8dbb31fa0a921d1e5629feaf9f891929 = L.popup({"maxWidth": 300});
+        var popup_5c3d9070e11e667e87e8fadcdf07fc4f = L.popup({"maxWidth": 300});
 
         
             
-                var html_78ae3f4073cd0327bc240dea074ef5a5 = $(`<div id="html_78ae3f4073cd0327bc240dea074ef5a5" style="width: 100.0%; height: 100.0%;">     <b>LAXOU MAIRIE</b><br>     <br>     <b>Stands utilisés:</b> 1 / 15<br>     <i>14 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_8dbb31fa0a921d1e5629feaf9f891929.setContent(html_78ae3f4073cd0327bc240dea074ef5a5);
+                var html_b0ee8cd37b59ffd8cc0802935fae51f5 = $(`<div id="html_b0ee8cd37b59ffd8cc0802935fae51f5" style="width: 100.0%; height: 100.0%;">     <b>LAXOU MAIRIE</b><br>     <br>     <b>Stands utilisés:</b> 5 / 15<br>     <i>10 places libres</i>     </div>`)[0];
+                popup_5c3d9070e11e667e87e8fadcdf07fc4f.setContent(html_b0ee8cd37b59ffd8cc0802935fae51f5);
             
         
 
-        marker_2356d4f5b8f7586293f64efbeeceedc4.bindPopup(popup_8dbb31fa0a921d1e5629feaf9f891929)
+        marker_ea5c58c8dd837546a7ac78fce428898d.bindPopup(popup_5c3d9070e11e667e87e8fadcdf07fc4f)
         ;
 
         
     
     
-            var marker_187634a08cede598efa3d77678017b3e = L.marker(
+            var marker_0aac9927f845e630b254b4501d3bb7eb = L.marker(
                 [48.695420147586, 6.19522861327582],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_20582c4bccb258e470047b923b0746e5 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_abe09cf7e7bada9d57fa34a376af9d47 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_187634a08cede598efa3d77678017b3e.setIcon(icon_20582c4bccb258e470047b923b0746e5);
+            marker_0aac9927f845e630b254b4501d3bb7eb.setIcon(icon_abe09cf7e7bada9d57fa34a376af9d47);
         
     
-        var popup_96afd4242a7e958643a3053ab5e1c0ec = L.popup({"maxWidth": 300});
+        var popup_ac1f53a6f2daaba6917e6a786ed8cb2d = L.popup({"maxWidth": 300});
 
         
             
-                var html_bedee145d4a872f104f74e278912fa17 = $(`<div id="html_bedee145d4a872f104f74e278912fa17" style="width: 100.0%; height: 100.0%;">     <b>LES 2 RIVES</b><br>     <br>     <b>Stands utilisés:</b> 4 / 16<br>     <i>12 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_96afd4242a7e958643a3053ab5e1c0ec.setContent(html_bedee145d4a872f104f74e278912fa17);
+                var html_ad0bd38e72685231d49612ea33881b87 = $(`<div id="html_ad0bd38e72685231d49612ea33881b87" style="width: 100.0%; height: 100.0%;">     <b>LES 2 RIVES</b><br>     <br>     <b>Stands utilisés:</b> 9 / 16<br>     <i>7 places libres</i>     </div>`)[0];
+                popup_ac1f53a6f2daaba6917e6a786ed8cb2d.setContent(html_ad0bd38e72685231d49612ea33881b87);
             
         
 
-        marker_187634a08cede598efa3d77678017b3e.bindPopup(popup_96afd4242a7e958643a3053ab5e1c0ec)
+        marker_0aac9927f845e630b254b4501d3bb7eb.bindPopup(popup_ac1f53a6f2daaba6917e6a786ed8cb2d)
         ;
 
         
     
     
-            var marker_8d9ce59b2bede7ff2916bfc31a38ebda = L.marker(
+            var marker_583f4c8d86b6257b4f93e5fbd82b9251 = L.marker(
                 [48.6869197241039, 6.17234789239391],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_6e8e941a4626a4aade70c3218451f97c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_c358e97d3bc969aad902d3c987d5d982 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
             );
-            marker_8d9ce59b2bede7ff2916bfc31a38ebda.setIcon(icon_6e8e941a4626a4aade70c3218451f97c);
+            marker_583f4c8d86b6257b4f93e5fbd82b9251.setIcon(icon_c358e97d3bc969aad902d3c987d5d982);
         
     
-        var popup_3a565910d0dd51a5d5c7fe842e99edda = L.popup({"maxWidth": 300});
+        var popup_75e830fdb12cc1b81fcd3a96f700f21b = L.popup({"maxWidth": 300});
 
         
             
-                var html_e1dff74ff2e8eb0d14f5628f6e09e4d1 = $(`<div id="html_e1dff74ff2e8eb0d14f5628f6e09e4d1" style="width: 100.0%; height: 100.0%;">     <b>COMMANDERIE - CHALNOT</b><br>     <br>     <b>Stands utilisés:</b> 1 / 18<br>     <i>17 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_3a565910d0dd51a5d5c7fe842e99edda.setContent(html_e1dff74ff2e8eb0d14f5628f6e09e4d1);
+                var html_d9c66f6b006a5fef54097165c79cbc9b = $(`<div id="html_d9c66f6b006a5fef54097165c79cbc9b" style="width: 100.0%; height: 100.0%;">     <b>COMMANDERIE - CHALNOT</b><br>     <br>     <b>Stands utilisés:</b> 0 / 18<br>     <i>18 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 18<br></div>`)[0];
+                popup_75e830fdb12cc1b81fcd3a96f700f21b.setContent(html_d9c66f6b006a5fef54097165c79cbc9b);
             
         
 
-        marker_8d9ce59b2bede7ff2916bfc31a38ebda.bindPopup(popup_3a565910d0dd51a5d5c7fe842e99edda)
+        marker_583f4c8d86b6257b4f93e5fbd82b9251.bindPopup(popup_75e830fdb12cc1b81fcd3a96f700f21b)
         ;
 
         
     
     
-            var marker_3032830afc4f84fee933fa88640010e8 = L.marker(
+            var marker_5d94fa5130b5f0d36862e1e5f876886f = L.marker(
                 [48.6954870039528, 6.1906794896667],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_2c6cd883cc6a874102f5bac85a347033 = L.AwesomeMarkers.icon(
+            var icon_137a2b16f6a7d5d112d2c1467238890f = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_3032830afc4f84fee933fa88640010e8.setIcon(icon_2c6cd883cc6a874102f5bac85a347033);
+            marker_5d94fa5130b5f0d36862e1e5f876886f.setIcon(icon_137a2b16f6a7d5d112d2c1467238890f);
         
     
-        var popup_1d54fc11c39be4bf51229946d7bd49c8 = L.popup({"maxWidth": 300});
+        var popup_555a59cdf1cb2f444abb6877393216a5 = L.popup({"maxWidth": 300});
 
         
             
-                var html_3bd9a0f52b254c9f3a116bb1c842439b = $(`<div id="html_3bd9a0f52b254c9f3a116bb1c842439b" style="width: 100.0%; height: 100.0%;">     <b>PORT STE CATHERINE</b><br>     <br>     <b>Stands utilisés:</b> 10 / 16<br>     <i>6 places libres</i>     </div>`)[0];
-                popup_1d54fc11c39be4bf51229946d7bd49c8.setContent(html_3bd9a0f52b254c9f3a116bb1c842439b);
+                var html_7e6311687d3bb522020f34e7ae99dd87 = $(`<div id="html_7e6311687d3bb522020f34e7ae99dd87" style="width: 100.0%; height: 100.0%;">     <b>PORT STE CATHERINE</b><br>     <br>     <b>Stands utilisés:</b> 7 / 16<br>     <i>9 places libres</i>     </div>`)[0];
+                popup_555a59cdf1cb2f444abb6877393216a5.setContent(html_7e6311687d3bb522020f34e7ae99dd87);
             
         
 
-        marker_3032830afc4f84fee933fa88640010e8.bindPopup(popup_1d54fc11c39be4bf51229946d7bd49c8)
+        marker_5d94fa5130b5f0d36862e1e5f876886f.bindPopup(popup_555a59cdf1cb2f444abb6877393216a5)
         ;
 
         
     
     
-            var marker_bddc1232230e0e826926c545786cd50e = L.marker(
+            var marker_4be06da29f9c3d00bc973f8270a99642 = L.marker(
                 [48.67227619793021, 6.165710709115886],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_7b0baf6583e1007d1f1bc48ebbbdfefa = L.AwesomeMarkers.icon(
+            var icon_4b7633de0f98d7e67599b2d8cf2b0651 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
             );
-            marker_bddc1232230e0e826926c545786cd50e.setIcon(icon_7b0baf6583e1007d1f1bc48ebbbdfefa);
+            marker_4be06da29f9c3d00bc973f8270a99642.setIcon(icon_4b7633de0f98d7e67599b2d8cf2b0651);
         
     
-        var popup_bab02bb066560a5c3be33d4ad113b35a = L.popup({"maxWidth": 300});
+        var popup_2bf433077f5328a221d2e5511fa4b288 = L.popup({"maxWidth": 300});
 
         
             
-                var html_216427e76b9eaec1932dadb9fdd986c7 = $(`<div id="html_216427e76b9eaec1932dadb9fdd986c7" style="width: 100.0%; height: 100.0%;">     <b>MARCHÉ D'HAUSSONVILLE</b><br>     <br>     <b>Stands utilisés:</b> 12 / 15<br>     <i>3 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 6<br></div>`)[0];
-                popup_bab02bb066560a5c3be33d4ad113b35a.setContent(html_216427e76b9eaec1932dadb9fdd986c7);
+                var html_80144c76dd23de1eb02a0ae9205a06ef = $(`<div id="html_80144c76dd23de1eb02a0ae9205a06ef" style="width: 100.0%; height: 100.0%;">     <b>MARCHÉ D'HAUSSONVILLE</b><br>     <br>     <b>Stands utilisés:</b> 11 / 15<br>     <i>4 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 5<br></div>`)[0];
+                popup_2bf433077f5328a221d2e5511fa4b288.setContent(html_80144c76dd23de1eb02a0ae9205a06ef);
             
         
 
-        marker_bddc1232230e0e826926c545786cd50e.bindPopup(popup_bab02bb066560a5c3be33d4ad113b35a)
+        marker_4be06da29f9c3d00bc973f8270a99642.bindPopup(popup_2bf433077f5328a221d2e5511fa4b288)
         ;
 
         
     
     
-            var marker_5d27b90cd3f4f19dccfe424db4af7716 = L.marker(
+            var marker_3a6e00c363e1620e079a91fd974a2960 = L.marker(
                 [48.688015, 6.187451],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_ca5ea6f8bdf8485649776976ff5a07ff = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_adfa751e818b599dd647b725621ca231 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_5d27b90cd3f4f19dccfe424db4af7716.setIcon(icon_ca5ea6f8bdf8485649776976ff5a07ff);
+            marker_3a6e00c363e1620e079a91fd974a2960.setIcon(icon_adfa751e818b599dd647b725621ca231);
         
     
-        var popup_f7250f0408f0258f992dbca08d3ce6d2 = L.popup({"maxWidth": 300});
+        var popup_a91723f40e6c8446bb88d072c18d99f8 = L.popup({"maxWidth": 300});
 
         
             
-                var html_d275c4b9bc110797beedf5fd7824ce9e = $(`<div id="html_d275c4b9bc110797beedf5fd7824ce9e" style="width: 100.0%; height: 100.0%;">     <b>SAINT NICOLAS - CHARLES III</b><br>     <br>     <b>Stands utilisés:</b> 4 / 16<br>     <i>12 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_f7250f0408f0258f992dbca08d3ce6d2.setContent(html_d275c4b9bc110797beedf5fd7824ce9e);
+                var html_f23fb7eb7adcecfa3447f9c75c38e2ad = $(`<div id="html_f23fb7eb7adcecfa3447f9c75c38e2ad" style="width: 100.0%; height: 100.0%;">     <b>SAINT NICOLAS - CHARLES III</b><br>     <br>     <b>Stands utilisés:</b> 6 / 16<br>     <i>10 places libres</i>     </div>`)[0];
+                popup_a91723f40e6c8446bb88d072c18d99f8.setContent(html_f23fb7eb7adcecfa3447f9c75c38e2ad);
             
         
 
-        marker_5d27b90cd3f4f19dccfe424db4af7716.bindPopup(popup_f7250f0408f0258f992dbca08d3ce6d2)
+        marker_3a6e00c363e1620e079a91fd974a2960.bindPopup(popup_a91723f40e6c8446bb88d072c18d99f8)
         ;
 
         
     
     
-            var marker_24cca6d9db7c87964d9b5a9fd67e3f39 = L.marker(
+            var marker_1ae7b154fac557e504deab9b61e6d42e = L.marker(
                 [48.6891733257851, 6.18390463043762],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_4a05dbda76e519278521f74e19e68030 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_60b3b47900be7ef70bf7a680b017121c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_24cca6d9db7c87964d9b5a9fd67e3f39.setIcon(icon_4a05dbda76e519278521f74e19e68030);
+            marker_1ae7b154fac557e504deab9b61e6d42e.setIcon(icon_60b3b47900be7ef70bf7a680b017121c);
         
     
-        var popup_0c3c9c10e7138d85d4d35b7d7b3442a2 = L.popup({"maxWidth": 300});
+        var popup_65d995de178e52f22bcc4580d7c368a5 = L.popup({"maxWidth": 300});
 
         
             
-                var html_1062daf274f115d05989955a7d91b517 = $(`<div id="html_1062daf274f115d05989955a7d91b517" style="width: 100.0%; height: 100.0%;">     <b>MARCHE CENTRAL (CB)</b><br>     <br>     <b>Stands utilisés:</b> 5 / 18<br>     <i>13 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_0c3c9c10e7138d85d4d35b7d7b3442a2.setContent(html_1062daf274f115d05989955a7d91b517);
+                var html_e7a658ba5076ae6372b5592a12190d1f = $(`<div id="html_e7a658ba5076ae6372b5592a12190d1f" style="width: 100.0%; height: 100.0%;">     <b>MARCHE CENTRAL (CB)</b><br>     <br>     <b>Stands utilisés:</b> 6 / 18<br>     <i>12 places libres</i>     </div>`)[0];
+                popup_65d995de178e52f22bcc4580d7c368a5.setContent(html_e7a658ba5076ae6372b5592a12190d1f);
             
         
 
-        marker_24cca6d9db7c87964d9b5a9fd67e3f39.bindPopup(popup_0c3c9c10e7138d85d4d35b7d7b3442a2)
+        marker_1ae7b154fac557e504deab9b61e6d42e.bindPopup(popup_65d995de178e52f22bcc4580d7c368a5)
         ;
 
         
     
     
-            var marker_21f39046cfe506bb66a9ddf3b11e2c4b = L.marker(
+            var marker_0dbff5b61028a9f9dddab8ae8ef929b8 = L.marker(
                 [48.689560111075, 6.17251545229862],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_0aee32067d9f1d6d00b9f4201f95109b = L.AwesomeMarkers.icon(
+            var icon_584351465ea9893d2794a4bd623ad6f5 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_21f39046cfe506bb66a9ddf3b11e2c4b.setIcon(icon_0aee32067d9f1d6d00b9f4201f95109b);
+            marker_0dbff5b61028a9f9dddab8ae8ef929b8.setIcon(icon_584351465ea9893d2794a4bd623ad6f5);
         
     
-        var popup_5c2435f992d32d6ffdf1cee1ef1d26c6 = L.popup({"maxWidth": 300});
+        var popup_f125da5a6cafaea054fe43a9479bcb10 = L.popup({"maxWidth": 300});
 
         
             
-                var html_e269ed1468946b72a6b25579777e724b = $(`<div id="html_e269ed1468946b72a6b25579777e724b" style="width: 100.0%; height: 100.0%;">     <b>GARE SAINT LEON</b><br>     <br>     <b>Stands utilisés:</b> 2 / 20<br>     <i>18 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_5c2435f992d32d6ffdf1cee1ef1d26c6.setContent(html_e269ed1468946b72a6b25579777e724b);
+                var html_d379e5b658b6cd61a33fcb80aebf1a78 = $(`<div id="html_d379e5b658b6cd61a33fcb80aebf1a78" style="width: 100.0%; height: 100.0%;">     <b>GARE SAINT LEON</b><br>     <br>     <b>Stands utilisés:</b> 1 / 20<br>     <i>19 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_f125da5a6cafaea054fe43a9479bcb10.setContent(html_d379e5b658b6cd61a33fcb80aebf1a78);
             
         
 
-        marker_21f39046cfe506bb66a9ddf3b11e2c4b.bindPopup(popup_5c2435f992d32d6ffdf1cee1ef1d26c6)
+        marker_0dbff5b61028a9f9dddab8ae8ef929b8.bindPopup(popup_f125da5a6cafaea054fe43a9479bcb10)
         ;
 
         
     
     
-            var marker_b30f7b8ca0f8abd34ad0545d59fbaf39 = L.marker(
+            var marker_d7d81528b603a1295cf2a64a66b50481 = L.marker(
                 [48.684141, 6.176525],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_6e0de291536f0ff61b79bb7138cb9be1 = L.AwesomeMarkers.icon(
+            var icon_881002cae01034a2b312beec050e74d8 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_b30f7b8ca0f8abd34ad0545d59fbaf39.setIcon(icon_6e0de291536f0ff61b79bb7138cb9be1);
+            marker_d7d81528b603a1295cf2a64a66b50481.setIcon(icon_881002cae01034a2b312beec050e74d8);
         
     
-        var popup_2f8eb8de4c3f93d5abcea1993b676fae = L.popup({"maxWidth": 300});
+        var popup_ad703ce1d5ef3eb1e26ededb0f5b6806 = L.popup({"maxWidth": 300});
 
         
             
-                var html_d167905b160e8ab3abb2bafb4504405c = $(`<div id="html_d167905b160e8ab3abb2bafb4504405c" style="width: 100.0%; height: 100.0%;">     <b>MON DESERT</b><br>     <br>     <b>Stands utilisés:</b> 2 / 15<br>     <i>13 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_2f8eb8de4c3f93d5abcea1993b676fae.setContent(html_d167905b160e8ab3abb2bafb4504405c);
+                var html_94337be4b8a69269f5d6a7ecb06b150d = $(`<div id="html_94337be4b8a69269f5d6a7ecb06b150d" style="width: 100.0%; height: 100.0%;">     <b>MON DESERT</b><br>     <br>     <b>Stands utilisés:</b> 1 / 14<br>     <i>13 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_ad703ce1d5ef3eb1e26ededb0f5b6806.setContent(html_94337be4b8a69269f5d6a7ecb06b150d);
             
         
 
-        marker_b30f7b8ca0f8abd34ad0545d59fbaf39.bindPopup(popup_2f8eb8de4c3f93d5abcea1993b676fae)
+        marker_d7d81528b603a1295cf2a64a66b50481.bindPopup(popup_ad703ce1d5ef3eb1e26ededb0f5b6806)
         ;
 
         
     
     
-            var marker_36e16bc0687971d1b907f06d08d3a699 = L.marker(
+            var marker_62fae6a9be2ea443b54cc1cd76b48739 = L.marker(
                 [48.6886141256403, 6.17950010441818],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_1d72b4b439c46d6ca6cb39314b30b194 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_8f343ea5dbfb31300d77c4580b87ecad = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_36e16bc0687971d1b907f06d08d3a699.setIcon(icon_1d72b4b439c46d6ca6cb39314b30b194);
+            marker_62fae6a9be2ea443b54cc1cd76b48739.setIcon(icon_8f343ea5dbfb31300d77c4580b87ecad);
         
     
-        var popup_9645bcc332f77577cba4b18d756e5d39 = L.popup({"maxWidth": 300});
+        var popup_d27202667bebeef9cd291e111e72ea5f = L.popup({"maxWidth": 300});
 
         
             
-                var html_fdae8931e3e66617ca6279e6469f8f18 = $(`<div id="html_fdae8931e3e66617ca6279e6469f8f18" style="width: 100.0%; height: 100.0%;">     <b>ST SEBASTIEN - ST THIEBAUT</b><br>     <br>     <b>Stands utilisés:</b> 5 / 22<br>     <i>17 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_9645bcc332f77577cba4b18d756e5d39.setContent(html_fdae8931e3e66617ca6279e6469f8f18);
+                var html_21013e251263a0aaf60809ee67b36309 = $(`<div id="html_21013e251263a0aaf60809ee67b36309" style="width: 100.0%; height: 100.0%;">     <b>ST SEBASTIEN - ST THIEBAUT</b><br>     <br>     <b>Stands utilisés:</b> 8 / 22<br>     <i>14 places libres</i>     </div>`)[0];
+                popup_d27202667bebeef9cd291e111e72ea5f.setContent(html_21013e251263a0aaf60809ee67b36309);
             
         
 
-        marker_36e16bc0687971d1b907f06d08d3a699.bindPopup(popup_9645bcc332f77577cba4b18d756e5d39)
+        marker_62fae6a9be2ea443b54cc1cd76b48739.bindPopup(popup_d27202667bebeef9cd291e111e72ea5f)
         ;
 
         
     
     
-            var marker_ebc0caf111e5ad836b9ea8ad0c9a1206 = L.marker(
+            var marker_3dbfc9af9ee49f0e6349321b4cc7b4f6 = L.marker(
                 [48.6858574026886, 6.19290171469907],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_467915a62add22bac42e7cd02b914926 = L.AwesomeMarkers.icon(
+            var icon_1582de2ddd67b04323a7d5f64eb5d5b5 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_ebc0caf111e5ad836b9ea8ad0c9a1206.setIcon(icon_467915a62add22bac42e7cd02b914926);
+            marker_3dbfc9af9ee49f0e6349321b4cc7b4f6.setIcon(icon_1582de2ddd67b04323a7d5f64eb5d5b5);
         
     
-        var popup_aba8f440fbf91149a6bfb4bfd51a3fb1 = L.popup({"maxWidth": 300});
+        var popup_adee954bf3cae106674e528020189a07 = L.popup({"maxWidth": 300});
 
         
             
-                var html_98823da8e4489493e8aa936b0477c03f = $(`<div id="html_98823da8e4489493e8aa936b0477c03f" style="width: 100.0%; height: 100.0%;">     <b>HOPITAL ST JULIEN</b><br>     <br>     <b>Stands utilisés:</b> 10 / 16<br>     <i>6 places libres</i>     </div>`)[0];
-                popup_aba8f440fbf91149a6bfb4bfd51a3fb1.setContent(html_98823da8e4489493e8aa936b0477c03f);
+                var html_2fd92fe64e6ad687f34055c7ac370e0d = $(`<div id="html_2fd92fe64e6ad687f34055c7ac370e0d" style="width: 100.0%; height: 100.0%;">     <b>HOPITAL ST JULIEN</b><br>     <br>     <b>Stands utilisés:</b> 10 / 16<br>     <i>6 places libres</i>     </div>`)[0];
+                popup_adee954bf3cae106674e528020189a07.setContent(html_2fd92fe64e6ad687f34055c7ac370e0d);
             
         
 
-        marker_ebc0caf111e5ad836b9ea8ad0c9a1206.bindPopup(popup_aba8f440fbf91149a6bfb4bfd51a3fb1)
+        marker_3dbfc9af9ee49f0e6349321b4cc7b4f6.bindPopup(popup_adee954bf3cae106674e528020189a07)
         ;
 
         
     
     
-            var marker_b747d65001fea03e3fad34d2eef31299 = L.marker(
+            var marker_3b56d09c4099a72954bab123b6f119de = L.marker(
                 [48.6833502130976, 6.19029660801914],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_520627833b79b2668f1b3bae85d6ee73 = L.AwesomeMarkers.icon(
+            var icon_b8cb6b9abe4365ad2dd6e44cf42f2a77 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_b747d65001fea03e3fad34d2eef31299.setIcon(icon_520627833b79b2668f1b3bae85d6ee73);
+            marker_3b56d09c4099a72954bab123b6f119de.setIcon(icon_b8cb6b9abe4365ad2dd6e44cf42f2a77);
         
     
-        var popup_0a74463e33da5d3cf8df6a1093ec6464 = L.popup({"maxWidth": 300});
+        var popup_410c99c6f556a7c7cb3476b21b1cc471 = L.popup({"maxWidth": 300});
 
         
             
-                var html_f2be6ab4bf4143b3e96cfcb3f139bbdd = $(`<div id="html_f2be6ab4bf4143b3e96cfcb3f139bbdd" style="width: 100.0%; height: 100.0%;">     <b>HOPITAL CENTRAL</b><br>     <br>     <b>Stands utilisés:</b> 8 / 20<br>     <i>12 places libres</i>     </div>`)[0];
-                popup_0a74463e33da5d3cf8df6a1093ec6464.setContent(html_f2be6ab4bf4143b3e96cfcb3f139bbdd);
+                var html_3fc2360b19a605886a32e8eae4d6491a = $(`<div id="html_3fc2360b19a605886a32e8eae4d6491a" style="width: 100.0%; height: 100.0%;">     <b>HOPITAL CENTRAL</b><br>     <br>     <b>Stands utilisés:</b> 7 / 20<br>     <i>13 places libres</i>     </div>`)[0];
+                popup_410c99c6f556a7c7cb3476b21b1cc471.setContent(html_3fc2360b19a605886a32e8eae4d6491a);
             
         
 
-        marker_b747d65001fea03e3fad34d2eef31299.bindPopup(popup_0a74463e33da5d3cf8df6a1093ec6464)
+        marker_3b56d09c4099a72954bab123b6f119de.bindPopup(popup_410c99c6f556a7c7cb3476b21b1cc471)
         ;
 
         
     
     
-            var marker_557dfb21f0b967086a035e5f5e01295d = L.marker(
+            var marker_ff039d5eebbdef61aaf4bf6224f89684 = L.marker(
                 [48.6921301, 6.1872695],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_e282eaf1d933427e2923a2fb8d6c8e9c = L.AwesomeMarkers.icon(
+            var icon_bfcaf72b3b9793f810cda73827182122 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_557dfb21f0b967086a035e5f5e01295d.setIcon(icon_e282eaf1d933427e2923a2fb8d6c8e9c);
+            marker_ff039d5eebbdef61aaf4bf6224f89684.setIcon(icon_bfcaf72b3b9793f810cda73827182122);
         
     
-        var popup_634501f5582a2d0b9a391b84ce257dc2 = L.popup({"maxWidth": 300});
+        var popup_4021747d2ca28033e5725dae38bc0d18 = L.popup({"maxWidth": 300});
 
         
             
-                var html_1f6eb58b018dbc6fa0fae0d8a70d0177 = $(`<div id="html_1f6eb58b018dbc6fa0fae0d8a70d0177" style="width: 100.0%; height: 100.0%;">     <b>PLACE COLONEL DRIANT</b><br>     <br>     <b>Stands utilisés:</b> 4 / 16<br>     <i>12 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_634501f5582a2d0b9a391b84ce257dc2.setContent(html_1f6eb58b018dbc6fa0fae0d8a70d0177);
+                var html_45a8ff05a382c28b41abe64d3fc05ec4 = $(`<div id="html_45a8ff05a382c28b41abe64d3fc05ec4" style="width: 100.0%; height: 100.0%;">     <b>PLACE COLONEL DRIANT</b><br>     <br>     <b>Stands utilisés:</b> 2 / 16<br>     <i>14 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_4021747d2ca28033e5725dae38bc0d18.setContent(html_45a8ff05a382c28b41abe64d3fc05ec4);
             
         
 
-        marker_557dfb21f0b967086a035e5f5e01295d.bindPopup(popup_634501f5582a2d0b9a391b84ce257dc2)
+        marker_ff039d5eebbdef61aaf4bf6224f89684.bindPopup(popup_4021747d2ca28033e5725dae38bc0d18)
         ;
 
         
     
     
-            var marker_2dbcec1642439ed58aebabac0d6c4913 = L.marker(
+            var marker_ca4b07ca25454a7a230c76c76799b191 = L.marker(
                 [48.6928180794454, 6.16860978784457],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_dab5eac5731f46c3a1b8f8148e968537 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_4fe50219f8931fb0cf0350f7e5748ef7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
             );
-            marker_2dbcec1642439ed58aebabac0d6c4913.setIcon(icon_dab5eac5731f46c3a1b8f8148e968537);
+            marker_ca4b07ca25454a7a230c76c76799b191.setIcon(icon_4fe50219f8931fb0cf0350f7e5748ef7);
         
     
-        var popup_6fc6f3acf356072b02d03cf35b355d6b = L.popup({"maxWidth": 300});
+        var popup_b1ac4507125df233795946749e64abdf = L.popup({"maxWidth": 300});
 
         
             
-                var html_3607de277165dcf510296132f3216c84 = $(`<div id="html_3607de277165dcf510296132f3216c84" style="width: 100.0%; height: 100.0%;">     <b>FAC DE LETTRES</b><br>     <br>     <b>Stands utilisés:</b> 8 / 19<br>     <i>11 places libres</i>     </div>`)[0];
-                popup_6fc6f3acf356072b02d03cf35b355d6b.setContent(html_3607de277165dcf510296132f3216c84);
+                var html_044b5de029b694f560a8558be5acdc40 = $(`<div id="html_044b5de029b694f560a8558be5acdc40" style="width: 100.0%; height: 100.0%;">     <b>FAC DE LETTRES</b><br>     <br>     <b>Stands utilisés:</b> 0 / 19<br>     <i>19 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 19<br></div>`)[0];
+                popup_b1ac4507125df233795946749e64abdf.setContent(html_044b5de029b694f560a8558be5acdc40);
             
         
 
-        marker_2dbcec1642439ed58aebabac0d6c4913.bindPopup(popup_6fc6f3acf356072b02d03cf35b355d6b)
+        marker_ca4b07ca25454a7a230c76c76799b191.bindPopup(popup_b1ac4507125df233795946749e64abdf)
         ;
 
         
     
     
-            var marker_5e70fd64051ca7bb0b7a776aebfd186b = L.marker(
+            var marker_de26f0a088e5f210de562374e6a5ba65 = L.marker(
                 [48.6984724451821, 6.17798553705909],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_9324c505e862cece7cf3ed1faf2789df = L.AwesomeMarkers.icon(
+            var icon_de1b61aa81885fd838f59631381432b6 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_5e70fd64051ca7bb0b7a776aebfd186b.setIcon(icon_9324c505e862cece7cf3ed1faf2789df);
+            marker_de26f0a088e5f210de562374e6a5ba65.setIcon(icon_de1b61aa81885fd838f59631381432b6);
         
     
-        var popup_2bc73c0da133ef4597fb2495b90c4ce4 = L.popup({"maxWidth": 300});
+        var popup_2a0f96bc32b0a6c010932f41d9fab22d = L.popup({"maxWidth": 300});
 
         
             
-                var html_c8954f3015b662f6ea8e94cb9f6148ae = $(`<div id="html_c8954f3015b662f6ea8e94cb9f6148ae" style="width: 100.0%; height: 100.0%;">     <b>PORTE DE LA CRAFFE</b><br>     <br>     <b>Stands utilisés:</b> 2 / 20<br>     <i>18 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_2bc73c0da133ef4597fb2495b90c4ce4.setContent(html_c8954f3015b662f6ea8e94cb9f6148ae);
+                var html_d84322f5d8a2ad30b2d8c36789df4156 = $(`<div id="html_d84322f5d8a2ad30b2d8c36789df4156" style="width: 100.0%; height: 100.0%;">     <b>PORTE DE LA CRAFFE</b><br>     <br>     <b>Stands utilisés:</b> 4 / 20<br>     <i>16 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_2a0f96bc32b0a6c010932f41d9fab22d.setContent(html_d84322f5d8a2ad30b2d8c36789df4156);
             
         
 
-        marker_5e70fd64051ca7bb0b7a776aebfd186b.bindPopup(popup_2bc73c0da133ef4597fb2495b90c4ce4)
+        marker_de26f0a088e5f210de562374e6a5ba65.bindPopup(popup_2a0f96bc32b0a6c010932f41d9fab22d)
         ;
 
         
     
     
-            var marker_ceffa8a2296320c88d6ba2a0acde48b9 = L.marker(
+            var marker_0f72ff1f092bdfae3f282d761aa4c7cf = L.marker(
                 [48.6995023285111, 6.20473563987354],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_b961f22ea76896b191730df07b6478b9 = L.AwesomeMarkers.icon(
+            var icon_c6846375523d99b2c120d089146ad383 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_ceffa8a2296320c88d6ba2a0acde48b9.setIcon(icon_b961f22ea76896b191730df07b6478b9);
+            marker_0f72ff1f092bdfae3f282d761aa4c7cf.setIcon(icon_c6846375523d99b2c120d089146ad383);
         
     
-        var popup_7d7b8a037f85d28518c1d3307132385b = L.popup({"maxWidth": 300});
+        var popup_748739145f298fc450cc83c1df6610a0 = L.popup({"maxWidth": 300});
 
         
             
-                var html_2d95a8193255584792161282b4b86dea = $(`<div id="html_2d95a8193255584792161282b4b86dea" style="width: 100.0%; height: 100.0%;">     <b>PLACE BARROIS</b><br>     <br>     <b>Stands utilisés:</b> 9 / 17<br>     <i>8 places libres</i>     </div>`)[0];
-                popup_7d7b8a037f85d28518c1d3307132385b.setContent(html_2d95a8193255584792161282b4b86dea);
+                var html_4b70fd149bf985f4e96feb1251a535dd = $(`<div id="html_4b70fd149bf985f4e96feb1251a535dd" style="width: 100.0%; height: 100.0%;">     <b>PLACE BARROIS</b><br>     <br>     <b>Stands utilisés:</b> 10 / 17<br>     <i>7 places libres</i>     </div>`)[0];
+                popup_748739145f298fc450cc83c1df6610a0.setContent(html_4b70fd149bf985f4e96feb1251a535dd);
             
         
 
-        marker_ceffa8a2296320c88d6ba2a0acde48b9.bindPopup(popup_7d7b8a037f85d28518c1d3307132385b)
+        marker_0f72ff1f092bdfae3f282d761aa4c7cf.bindPopup(popup_748739145f298fc450cc83c1df6610a0)
         ;
 
         
     
     
-            var marker_7a21ae09fb6d5695f77283dd2dfb7817 = L.marker(
+            var marker_cfe0d4982f604ec030fe85a19f341ab5 = L.marker(
                 [48.680516, 6.181811],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_09ecb36a457ccef673e755e77d359fbc = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_1a7cd03fd3447e31a64b6894a3482214 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
             );
-            marker_7a21ae09fb6d5695f77283dd2dfb7817.setIcon(icon_09ecb36a457ccef673e755e77d359fbc);
+            marker_cfe0d4982f604ec030fe85a19f341ab5.setIcon(icon_1a7cd03fd3447e31a64b6894a3482214);
         
     
-        var popup_dd7e595e3786838d7df2180b467e87fe = L.popup({"maxWidth": 300});
+        var popup_e648c304204b25477966b9a99aef90e6 = L.popup({"maxWidth": 300});
 
         
             
-                var html_f134c9cb606748c45a696af5928847c6 = $(`<div id="html_f134c9cb606748c45a696af5928847c6" style="width: 100.0%; height: 100.0%;">     <b>SAURUPT</b><br>     <br>     <b>Stands utilisés:</b> 1 / 15<br>     <i>14 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_dd7e595e3786838d7df2180b467e87fe.setContent(html_f134c9cb606748c45a696af5928847c6);
+                var html_0e24ce89d479097ed3e354d1613bd1da = $(`<div id="html_0e24ce89d479097ed3e354d1613bd1da" style="width: 100.0%; height: 100.0%;">     <b>SAURUPT</b><br>     <br>     <b>Stands utilisés:</b> 0 / 15<br>     <i>15 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 15<br></div>`)[0];
+                popup_e648c304204b25477966b9a99aef90e6.setContent(html_0e24ce89d479097ed3e354d1613bd1da);
             
         
 
-        marker_7a21ae09fb6d5695f77283dd2dfb7817.bindPopup(popup_dd7e595e3786838d7df2180b467e87fe)
+        marker_cfe0d4982f604ec030fe85a19f341ab5.bindPopup(popup_e648c304204b25477966b9a99aef90e6)
         ;
 
         
     
     
-            var marker_3b6817b4d6d9d8068dbd374fd1c0f9f1 = L.marker(
+            var marker_fd40b149a587d7aaab6fa85b1daf0ac6 = L.marker(
                 [48.707187, 6.185524],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_90728ed6c8d897d57ec8c727e7f3f08b = L.AwesomeMarkers.icon(
+            var icon_aae063657b09aa51b6b7ee47755b4911 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_3b6817b4d6d9d8068dbd374fd1c0f9f1.setIcon(icon_90728ed6c8d897d57ec8c727e7f3f08b);
+            marker_fd40b149a587d7aaab6fa85b1daf0ac6.setIcon(icon_aae063657b09aa51b6b7ee47755b4911);
         
     
-        var popup_0b6c259f296d9dcc9f2368e0f6e5d479 = L.popup({"maxWidth": 300});
+        var popup_90c2bceb21ca955b48f5cf666982853a = L.popup({"maxWidth": 300});
 
         
             
-                var html_dda60a1113ba9475de34f7283f1f1604 = $(`<div id="html_dda60a1113ba9475de34f7283f1f1604" style="width: 100.0%; height: 100.0%;">     <b>MALZEVILLE</b><br>     <br>     <b>Stands utilisés:</b> 7 / 15<br>     <i>8 places libres</i>     </div>`)[0];
-                popup_0b6c259f296d9dcc9f2368e0f6e5d479.setContent(html_dda60a1113ba9475de34f7283f1f1604);
+                var html_3f860e66ec70071898006b4aac30ee00 = $(`<div id="html_3f860e66ec70071898006b4aac30ee00" style="width: 100.0%; height: 100.0%;">     <b>MALZEVILLE</b><br>     <br>     <b>Stands utilisés:</b> 7 / 15<br>     <i>8 places libres</i>     </div>`)[0];
+                popup_90c2bceb21ca955b48f5cf666982853a.setContent(html_3f860e66ec70071898006b4aac30ee00);
             
         
 
-        marker_3b6817b4d6d9d8068dbd374fd1c0f9f1.bindPopup(popup_0b6c259f296d9dcc9f2368e0f6e5d479)
+        marker_fd40b149a587d7aaab6fa85b1daf0ac6.bindPopup(popup_90c2bceb21ca955b48f5cf666982853a)
         ;
 
         
     
     
-            var marker_827ad01e3c76a643bb7ae696990e3fe6 = L.marker(
+            var marker_90663d4d99dc513d88ef061c2be5b1c4 = L.marker(
                 [48.6919579483934, 6.17851021950761],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_2f09c56dab2e1c40cf23fbfd07963803 = L.AwesomeMarkers.icon(
+            var icon_4feefa54305e9afa9dab0cf3fd25e514 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_827ad01e3c76a643bb7ae696990e3fe6.setIcon(icon_2f09c56dab2e1c40cf23fbfd07963803);
+            marker_90663d4d99dc513d88ef061c2be5b1c4.setIcon(icon_4feefa54305e9afa9dab0cf3fd25e514);
         
     
-        var popup_f29ad3a39d6a61ac72f498f17d7b7739 = L.popup({"maxWidth": 300});
+        var popup_6284c9703b75e34cfe6946d450e2c1b8 = L.popup({"maxWidth": 300});
 
         
             
-                var html_377d695ada26b6a1e6ee7984ee0037de = $(`<div id="html_377d695ada26b6a1e6ee7984ee0037de" style="width: 100.0%; height: 100.0%;">     <b>PLACE DE DOMBASLE</b><br>     <br>     <b>Stands utilisés:</b> 5 / 28<br>     <i>23 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_f29ad3a39d6a61ac72f498f17d7b7739.setContent(html_377d695ada26b6a1e6ee7984ee0037de);
+                var html_8af7421c5a8da0fd27f72d6f088b04c4 = $(`<div id="html_8af7421c5a8da0fd27f72d6f088b04c4" style="width: 100.0%; height: 100.0%;">     <b>PLACE DE DOMBASLE</b><br>     <br>     <b>Stands utilisés:</b> 6 / 28<br>     <i>22 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_6284c9703b75e34cfe6946d450e2c1b8.setContent(html_8af7421c5a8da0fd27f72d6f088b04c4);
             
         
 
-        marker_827ad01e3c76a643bb7ae696990e3fe6.bindPopup(popup_f29ad3a39d6a61ac72f498f17d7b7739)
+        marker_90663d4d99dc513d88ef061c2be5b1c4.bindPopup(popup_6284c9703b75e34cfe6946d450e2c1b8)
         ;
 
         
     
     
-            var marker_dde07006e386b88a609692c1d70c8a5f = L.marker(
+            var marker_185c03e4f598fd3bad50ee4f2caffab4 = L.marker(
                 [48.675248491826174, 6.162844844269929],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_1b56933a9bff7225dd09fe74ea9da2f3 = L.AwesomeMarkers.icon(
+            var icon_f482a764d1a109693c3df0f9419f47c7 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_dde07006e386b88a609692c1d70c8a5f.setIcon(icon_1b56933a9bff7225dd09fe74ea9da2f3);
+            marker_185c03e4f598fd3bad50ee4f2caffab4.setIcon(icon_f482a764d1a109693c3df0f9419f47c7);
         
     
-        var popup_3d2ffdda5bf502325b67da7d31af5f46 = L.popup({"maxWidth": 300});
+        var popup_3efd2815d76e22e925cfd1626e0ee0fd = L.popup({"maxWidth": 300});
 
         
             
-                var html_abbec8ab8229ef0f188cf61819d3b155 = $(`<div id="html_abbec8ab8229ef0f188cf61819d3b155" style="width: 100.0%; height: 100.0%;">     <b>BAUDRICOURT HAUSSONVILLE</b><br>     <br>     <b>Stands utilisés:</b> 7 / 15<br>     <i>8 places libres</i>     </div>`)[0];
-                popup_3d2ffdda5bf502325b67da7d31af5f46.setContent(html_abbec8ab8229ef0f188cf61819d3b155);
+                var html_78516d6bafb40de5760a09c15d2aab6b = $(`<div id="html_78516d6bafb40de5760a09c15d2aab6b" style="width: 100.0%; height: 100.0%;">     <b>BAUDRICOURT HAUSSONVILLE</b><br>     <br>     <b>Stands utilisés:</b> 7 / 15<br>     <i>8 places libres</i>     </div>`)[0];
+                popup_3efd2815d76e22e925cfd1626e0ee0fd.setContent(html_78516d6bafb40de5760a09c15d2aab6b);
             
         
 
-        marker_dde07006e386b88a609692c1d70c8a5f.bindPopup(popup_3d2ffdda5bf502325b67da7d31af5f46)
+        marker_185c03e4f598fd3bad50ee4f2caffab4.bindPopup(popup_3efd2815d76e22e925cfd1626e0ee0fd)
         ;
 
         
     
     
-            var marker_6a8f8954ff710ef8fd848200b6a2cc8a = L.marker(
+            var marker_62bc6d35127c08acec0e01d51da64333 = L.marker(
                 [48.701365, 6.176824],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_a23d59613c7057041db0ad8dbd1cfee4 = L.AwesomeMarkers.icon(
+            var icon_979830709db1143890955bd719054c2d = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_6a8f8954ff710ef8fd848200b6a2cc8a.setIcon(icon_a23d59613c7057041db0ad8dbd1cfee4);
+            marker_62bc6d35127c08acec0e01d51da64333.setIcon(icon_979830709db1143890955bd719054c2d);
         
     
-        var popup_edbce7ca8d20358a36b4f0ab0432ae1e = L.popup({"maxWidth": 300});
+        var popup_cfb88e0d69d5c9cb1d0e3323c079a24b = L.popup({"maxWidth": 300});
 
         
             
-                var html_c6e425c0562030a1e471c4f271bd0727 = $(`<div id="html_c6e425c0562030a1e471c4f271bd0727" style="width: 100.0%; height: 100.0%;">     <b>3 MAISONS - CHARLES V (CB)</b><br>     <br>     <b>Stands utilisés:</b> 1 / 23<br>     <i>22 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_edbce7ca8d20358a36b4f0ab0432ae1e.setContent(html_c6e425c0562030a1e471c4f271bd0727);
+                var html_e0bf04970ca483078adc80bdb0a64012 = $(`<div id="html_e0bf04970ca483078adc80bdb0a64012" style="width: 100.0%; height: 100.0%;">     <b>3 MAISONS - CHARLES V (CB)</b><br>     <br>     <b>Stands utilisés:</b> 5 / 23<br>     <i>18 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_cfb88e0d69d5c9cb1d0e3323c079a24b.setContent(html_e0bf04970ca483078adc80bdb0a64012);
             
         
 
-        marker_6a8f8954ff710ef8fd848200b6a2cc8a.bindPopup(popup_edbce7ca8d20358a36b4f0ab0432ae1e)
+        marker_62bc6d35127c08acec0e01d51da64333.bindPopup(popup_cfb88e0d69d5c9cb1d0e3323c079a24b)
         ;
 
         
     
     
-            var marker_d1488651956e6624cdc4f67511c88754 = L.marker(
+            var marker_86055559be897be43cf28c6e45dafed1 = L.marker(
                 [48.6927939742599, 6.19628435757015],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_b4d11401a7d2edde2619d56bb5d741e1 = L.AwesomeMarkers.icon(
+            var icon_f442183a46e6ba0f4bc702f4c6f23c48 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_d1488651956e6624cdc4f67511c88754.setIcon(icon_b4d11401a7d2edde2619d56bb5d741e1);
+            marker_86055559be897be43cf28c6e45dafed1.setIcon(icon_f442183a46e6ba0f4bc702f4c6f23c48);
         
     
-        var popup_203563a46b37e6faa9f1abcbc54b1afe = L.popup({"maxWidth": 300});
+        var popup_b28f16fd88540f94d25b0ad6b0c5bce7 = L.popup({"maxWidth": 300});
 
         
             
-                var html_4f632b24b41b44c35966f7d55b6bac96 = $(`<div id="html_4f632b24b41b44c35966f7d55b6bac96" style="width: 100.0%; height: 100.0%;">     <b>PROMENADE DES CANAUX</b><br>     <br>     <b>Stands utilisés:</b> 7 / 16<br>     <i>9 places libres</i>     </div>`)[0];
-                popup_203563a46b37e6faa9f1abcbc54b1afe.setContent(html_4f632b24b41b44c35966f7d55b6bac96);
+                var html_fb9aabb88eb862a6481686f4f51144a3 = $(`<div id="html_fb9aabb88eb862a6481686f4f51144a3" style="width: 100.0%; height: 100.0%;">     <b>PROMENADE DES CANAUX</b><br>     <br>     <b>Stands utilisés:</b> 8 / 16<br>     <i>8 places libres</i>     </div>`)[0];
+                popup_b28f16fd88540f94d25b0ad6b0c5bce7.setContent(html_fb9aabb88eb862a6481686f4f51144a3);
             
         
 
-        marker_d1488651956e6624cdc4f67511c88754.bindPopup(popup_203563a46b37e6faa9f1abcbc54b1afe)
+        marker_86055559be897be43cf28c6e45dafed1.bindPopup(popup_b28f16fd88540f94d25b0ad6b0c5bce7)
         ;
 
         
     
     
-            var marker_e03552bd215b9257cd4c2f863ab0d7ea = L.marker(
+            var marker_be171b52ca56ec78234f7ff76391342e = L.marker(
                 [48.6952351, 6.1798109],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_d02fc3e909d443d52a247a4b994b431e = L.AwesomeMarkers.icon(
+            var icon_831f2fdd56b86adbac432f4e9b551f1e = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_e03552bd215b9257cd4c2f863ab0d7ea.setIcon(icon_d02fc3e909d443d52a247a4b994b431e);
+            marker_be171b52ca56ec78234f7ff76391342e.setIcon(icon_831f2fdd56b86adbac432f4e9b551f1e);
         
     
-        var popup_48f6d01026b06efc90ee6b887f24b38a = L.popup({"maxWidth": 300});
+        var popup_dd086f6fb0a175e4358843c97bbc01cb = L.popup({"maxWidth": 300});
 
         
             
-                var html_bb2d14617a19b315334985a52fbeb314 = $(`<div id="html_bb2d14617a19b315334985a52fbeb314" style="width: 100.0%; height: 100.0%;">     <b>PLACE ST EPVRE</b><br>     <br>     <b>Stands utilisés:</b> 3 / 20<br>     <i>17 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_48f6d01026b06efc90ee6b887f24b38a.setContent(html_bb2d14617a19b315334985a52fbeb314);
+                var html_b1ebcc9f1ca4d6354c551a6793a8b2d6 = $(`<div id="html_b1ebcc9f1ca4d6354c551a6793a8b2d6" style="width: 100.0%; height: 100.0%;">     <b>PLACE ST EPVRE</b><br>     <br>     <b>Stands utilisés:</b> 4 / 20<br>     <i>16 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_dd086f6fb0a175e4358843c97bbc01cb.setContent(html_b1ebcc9f1ca4d6354c551a6793a8b2d6);
             
         
 
-        marker_e03552bd215b9257cd4c2f863ab0d7ea.bindPopup(popup_48f6d01026b06efc90ee6b887f24b38a)
+        marker_be171b52ca56ec78234f7ff76391342e.bindPopup(popup_dd086f6fb0a175e4358843c97bbc01cb)
         ;
 
         
     
     
-            var marker_5e3a63de0353c709a536db27bf42d597 = L.marker(
+            var marker_e5171e56cc5b9fecdbf454f704ba2b02 = L.marker(
                 [48.685497, 6.161015],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_b0bd5df53b478ed762fd0a5c083190ac = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_23053c9e4fb0f37081afd7242d65a04b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
             );
-            marker_5e3a63de0353c709a536db27bf42d597.setIcon(icon_b0bd5df53b478ed762fd0a5c083190ac);
+            marker_e5171e56cc5b9fecdbf454f704ba2b02.setIcon(icon_23053c9e4fb0f37081afd7242d65a04b);
         
     
-        var popup_261294eb2d32e44308b26055dbb7e586 = L.popup({"maxWidth": 300});
+        var popup_020e7f2112298e4d0be1445adbca2564 = L.popup({"maxWidth": 300});
 
         
             
-                var html_299500a2f5e132281136215301741295 = $(`<div id="html_299500a2f5e132281136215301741295" style="width: 100.0%; height: 100.0%;">     <b>MEDREVILLE</b><br>     <br>     <b>Stands utilisés:</b> 1 / 15<br>     <i>14 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_261294eb2d32e44308b26055dbb7e586.setContent(html_299500a2f5e132281136215301741295);
+                var html_ba080c9fe1451a5a794f470396e1b81e = $(`<div id="html_ba080c9fe1451a5a794f470396e1b81e" style="width: 100.0%; height: 100.0%;">     <b>MEDREVILLE</b><br>     <br>     <b>Stands utilisés:</b> 0 / 15<br>     <i>15 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 15<br></div>`)[0];
+                popup_020e7f2112298e4d0be1445adbca2564.setContent(html_ba080c9fe1451a5a794f470396e1b81e);
             
         
 
-        marker_5e3a63de0353c709a536db27bf42d597.bindPopup(popup_261294eb2d32e44308b26055dbb7e586)
+        marker_e5171e56cc5b9fecdbf454f704ba2b02.bindPopup(popup_020e7f2112298e4d0be1445adbca2564)
         ;
 
         
     
     
-            var marker_23b864196214ebb868d56636d86978de = L.marker(
+            var marker_0604bf7bc47f67744de285326e473ed2 = L.marker(
                 [48.684781, 6.187631],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_2c4c0e8f8d6469c43c484c5b88257364 = L.AwesomeMarkers.icon(
+            var icon_29c24e8613b0a6feb5c7493c4d42ed0a = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
             );
-            marker_23b864196214ebb868d56636d86978de.setIcon(icon_2c4c0e8f8d6469c43c484c5b88257364);
+            marker_0604bf7bc47f67744de285326e473ed2.setIcon(icon_29c24e8613b0a6feb5c7493c4d42ed0a);
         
     
-        var popup_6c2b06ea0af04af3b7914cb4082649fb = L.popup({"maxWidth": 300});
+        var popup_98be60aac05fa4390802346503608943 = L.popup({"maxWidth": 300});
 
         
             
-                var html_1c7dcd5a16abb2598169211c57cc8f5a = $(`<div id="html_1c7dcd5a16abb2598169211c57cc8f5a" style="width: 100.0%; height: 100.0%;">     <b>PLACE DES VOSGES</b><br>     <br>     <b>Stands utilisés:</b> 13 / 15<br>     <i>2 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 7<br></div>`)[0];
-                popup_6c2b06ea0af04af3b7914cb4082649fb.setContent(html_1c7dcd5a16abb2598169211c57cc8f5a);
+                var html_8c8fae5c24e900a1a335196f9da4ac5c = $(`<div id="html_8c8fae5c24e900a1a335196f9da4ac5c" style="width: 100.0%; height: 100.0%;">     <b>PLACE DES VOSGES</b><br>     <br>     <b>Stands utilisés:</b> 13 / 15<br>     <i>2 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 7<br></div>`)[0];
+                popup_98be60aac05fa4390802346503608943.setContent(html_8c8fae5c24e900a1a335196f9da4ac5c);
             
         
 
-        marker_23b864196214ebb868d56636d86978de.bindPopup(popup_6c2b06ea0af04af3b7914cb4082649fb)
+        marker_0604bf7bc47f67744de285326e473ed2.bindPopup(popup_98be60aac05fa4390802346503608943)
         ;
 
         
     
     
-            var marker_8e60d04bfb85067e00daa40dc8a5ac20 = L.marker(
+            var marker_f70364ccff3893e4beb682f0925321ae = L.marker(
                 [48.691291, 6.190844],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_fb7bd1e85cfa39e29c76442742a39947 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            var icon_2a3d1914e51fc99d82923e4da3f34d55 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_8e60d04bfb85067e00daa40dc8a5ac20.setIcon(icon_fb7bd1e85cfa39e29c76442742a39947);
+            marker_f70364ccff3893e4beb682f0925321ae.setIcon(icon_2a3d1914e51fc99d82923e4da3f34d55);
         
     
-        var popup_6b4e899c8e40e6ef9b1fe8846d8c5152 = L.popup({"maxWidth": 300});
+        var popup_865c6bf4782c0275e4d37a54c22670fb = L.popup({"maxWidth": 300});
 
         
             
-                var html_720eed5512bdabb75cf52e26767db604 = $(`<div id="html_720eed5512bdabb75cf52e26767db604" style="width: 100.0%; height: 100.0%;">     <b>JARDINIERS - TIERCELINS</b><br>     <br>     <b>Stands utilisés:</b> 11 / 12<br>     <i>1 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 7<br></div>`)[0];
-                popup_6b4e899c8e40e6ef9b1fe8846d8c5152.setContent(html_720eed5512bdabb75cf52e26767db604);
+                var html_9f811d4ba020d50be53abaf3da906b31 = $(`<div id="html_9f811d4ba020d50be53abaf3da906b31" style="width: 100.0%; height: 100.0%;">     <b>JARDINIERS - TIERCELINS</b><br>     <br>     <b>Stands utilisés:</b> 7 / 12<br>     <i>5 places libres</i>     </div>`)[0];
+                popup_865c6bf4782c0275e4d37a54c22670fb.setContent(html_9f811d4ba020d50be53abaf3da906b31);
             
         
 
-        marker_8e60d04bfb85067e00daa40dc8a5ac20.bindPopup(popup_6b4e899c8e40e6ef9b1fe8846d8c5152)
+        marker_f70364ccff3893e4beb682f0925321ae.bindPopup(popup_865c6bf4782c0275e4d37a54c22670fb)
         ;
 
         
     
     
-            var marker_2b93fbcb9988c90903ea5d7dfe0de247 = L.marker(
+            var marker_629dc9afc067a63e487c8658d72a721f = L.marker(
                 [48.674665, 6.170655],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_04bca93d9e3f81040984b95f653189e7 = L.AwesomeMarkers.icon(
+            var icon_e672daba07cbc6e4c21502c5d4a15158 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
             );
-            marker_2b93fbcb9988c90903ea5d7dfe0de247.setIcon(icon_04bca93d9e3f81040984b95f653189e7);
+            marker_629dc9afc067a63e487c8658d72a721f.setIcon(icon_e672daba07cbc6e4c21502c5d4a15158);
         
     
-        var popup_1fb07087aed7a2dedc1566297d21d755 = L.popup({"maxWidth": 300});
+        var popup_b762e5aa81ccb78d73b0f0f42d83a673 = L.popup({"maxWidth": 300});
 
         
             
-                var html_a63d4a97e770025c50777e4c44ad9a77 = $(`<div id="html_a63d4a97e770025c50777e4c44ad9a77" style="width: 100.0%; height: 100.0%;">     <b>ARTEM</b><br>     <br>     <b>Stands utilisés:</b> 18 / 20<br>     <i>2 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 9<br></div>`)[0];
-                popup_1fb07087aed7a2dedc1566297d21d755.setContent(html_a63d4a97e770025c50777e4c44ad9a77);
+                var html_030313fc106ea12dbec2d1aea194dcdc = $(`<div id="html_030313fc106ea12dbec2d1aea194dcdc" style="width: 100.0%; height: 100.0%;">     <b>ARTEM</b><br>     <br>     <b>Stands utilisés:</b> 16 / 20<br>     <i>4 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 7<br></div>`)[0];
+                popup_b762e5aa81ccb78d73b0f0f42d83a673.setContent(html_030313fc106ea12dbec2d1aea194dcdc);
             
         
 
-        marker_2b93fbcb9988c90903ea5d7dfe0de247.bindPopup(popup_1fb07087aed7a2dedc1566297d21d755)
+        marker_629dc9afc067a63e487c8658d72a721f.bindPopup(popup_b762e5aa81ccb78d73b0f0f42d83a673)
         ;
 
         
     
     
-            var marker_27fc3a43784c6a02711e09dc03e6305d = L.marker(
+            var marker_913d3d8fb24aeaaabe527537d253a67c = L.marker(
                 [48.6956140662607, 6.17676840786255],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_0c549f6cd1c4f55853bb3b4d6a65bc1d = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
+            var icon_911ace6a6ca250b72693955571ec2791 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_27fc3a43784c6a02711e09dc03e6305d.setIcon(icon_0c549f6cd1c4f55853bb3b4d6a65bc1d);
+            marker_913d3d8fb24aeaaabe527537d253a67c.setIcon(icon_911ace6a6ca250b72693955571ec2791);
         
     
-        var popup_428eac851609d6fc122b76f38561f18a = L.popup({"maxWidth": 300});
+        var popup_7c94dbb8b5711a82c6590ebb3ee649d6 = L.popup({"maxWidth": 300});
 
         
             
-                var html_679cec6826063597a22ec58f2840730a = $(`<div id="html_679cec6826063597a22ec58f2840730a" style="width: 100.0%; height: 100.0%;">     <b>COURS LEOPOLD - SAINT MICHEL</b><br>     <br>     <b>Stands utilisés:</b> 13 / 18<br>     <i>5 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 5<br></div>`)[0];
-                popup_428eac851609d6fc122b76f38561f18a.setContent(html_679cec6826063597a22ec58f2840730a);
+                var html_4552071874ad8d29c71076ffb855c80c = $(`<div id="html_4552071874ad8d29c71076ffb855c80c" style="width: 100.0%; height: 100.0%;">     <b>COURS LEOPOLD - SAINT MICHEL</b><br>     <br>     <b>Stands utilisés:</b> 12 / 18<br>     <i>6 places libres</i>     </div>`)[0];
+                popup_7c94dbb8b5711a82c6590ebb3ee649d6.setContent(html_4552071874ad8d29c71076ffb855c80c);
             
         
 
-        marker_27fc3a43784c6a02711e09dc03e6305d.bindPopup(popup_428eac851609d6fc122b76f38561f18a)
+        marker_913d3d8fb24aeaaabe527537d253a67c.bindPopup(popup_7c94dbb8b5711a82c6590ebb3ee649d6)
         ;
 
         
     
     
-            var marker_b3b8f501f5a52bf992c748704e22e5e4 = L.marker(
+            var marker_e117eb5b1a8edb5ac5a2e4036f21e4e3 = L.marker(
                 [48.69037, 6.175677],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_d52c449eb4b2d0364d4109ff0a36fec4 = L.AwesomeMarkers.icon(
+            var icon_a1c3f59d3a87785941840c5f203f9978 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_b3b8f501f5a52bf992c748704e22e5e4.setIcon(icon_d52c449eb4b2d0364d4109ff0a36fec4);
+            marker_e117eb5b1a8edb5ac5a2e4036f21e4e3.setIcon(icon_a1c3f59d3a87785941840c5f203f9978);
         
     
-        var popup_4885e9ab84e98b8818dbb5a657c189a9 = L.popup({"maxWidth": 300});
+        var popup_c00fee8df79a6bcb60178195894d7807 = L.popup({"maxWidth": 300});
 
         
             
-                var html_92ba3885c893ba6f1afeb9471a170533 = $(`<div id="html_92ba3885c893ba6f1afeb9471a170533" style="width: 100.0%; height: 100.0%;">     <b>GARE THIERS (CB)</b><br>     <br>     <b>Stands utilisés:</b> 6 / 39<br>     <i>33 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_4885e9ab84e98b8818dbb5a657c189a9.setContent(html_92ba3885c893ba6f1afeb9471a170533);
+                var html_22923993edba7cea4937d119447ab196 = $(`<div id="html_22923993edba7cea4937d119447ab196" style="width: 100.0%; height: 100.0%;">     <b>GARE THIERS (CB)</b><br>     <br>     <b>Stands utilisés:</b> 2 / 39<br>     <i>37 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 9<br></div>`)[0];
+                popup_c00fee8df79a6bcb60178195894d7807.setContent(html_22923993edba7cea4937d119447ab196);
             
         
 
-        marker_b3b8f501f5a52bf992c748704e22e5e4.bindPopup(popup_4885e9ab84e98b8818dbb5a657c189a9)
+        marker_e117eb5b1a8edb5ac5a2e4036f21e4e3.bindPopup(popup_c00fee8df79a6bcb60178195894d7807)
         ;
 
         
     
     
-            var marker_0d50f4575b5279622fb102f89fab01d8 = L.marker(
+            var marker_09806c6067871c8b65a7d75bb0471986 = L.marker(
                 [48.6945981637388, 6.18229408637817],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_9b2984963ebe0f94734957e4567b640c = L.AwesomeMarkers.icon(
+            var icon_da1e1a5961bc6251af1dbc1c41964e3c = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_0d50f4575b5279622fb102f89fab01d8.setIcon(icon_9b2984963ebe0f94734957e4567b640c);
+            marker_09806c6067871c8b65a7d75bb0471986.setIcon(icon_da1e1a5961bc6251af1dbc1c41964e3c);
         
     
-        var popup_57c9bd9c21c67c3e449704d143e0a928 = L.popup({"maxWidth": 300});
+        var popup_518fd84c394be5e5c1b0e5e42db5f724 = L.popup({"maxWidth": 300});
 
         
             
-                var html_042797f1c49abc00b14e88132d1b6ced = $(`<div id="html_042797f1c49abc00b14e88132d1b6ced" style="width: 100.0%; height: 100.0%;">     <b>PLACE DE LA CARRIERE</b><br>     <br>     <b>Stands utilisés:</b> 3 / 16<br>     <i>13 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_57c9bd9c21c67c3e449704d143e0a928.setContent(html_042797f1c49abc00b14e88132d1b6ced);
+                var html_2c05728fe07b63ae85cbb09a0ec7d856 = $(`<div id="html_2c05728fe07b63ae85cbb09a0ec7d856" style="width: 100.0%; height: 100.0%;">     <b>PLACE DE LA CARRIERE</b><br>     <br>     <b>Stands utilisés:</b> 2 / 16<br>     <i>14 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_518fd84c394be5e5c1b0e5e42db5f724.setContent(html_2c05728fe07b63ae85cbb09a0ec7d856);
             
         
 
-        marker_0d50f4575b5279622fb102f89fab01d8.bindPopup(popup_57c9bd9c21c67c3e449704d143e0a928)
+        marker_09806c6067871c8b65a7d75bb0471986.bindPopup(popup_518fd84c394be5e5c1b0e5e42db5f724)
         ;
 
         
     
     
-            var marker_df195673a55a20fb54d764f7dd8bdf2c = L.marker(
+            var marker_9b278e56f9946fdac610a559c2ad833c = L.marker(
                 [48.6859179816784, 6.1674218161464],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_82330ec6c3b42fca89617ba2b5c8adb7 = L.AwesomeMarkers.icon(
+            var icon_8e7085d65a693f2c4501411bb43ff056 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
             );
-            marker_df195673a55a20fb54d764f7dd8bdf2c.setIcon(icon_82330ec6c3b42fca89617ba2b5c8adb7);
+            marker_9b278e56f9946fdac610a559c2ad833c.setIcon(icon_8e7085d65a693f2c4501411bb43ff056);
         
     
-        var popup_c8563b711de3318ab98618a57de1e027 = L.popup({"maxWidth": 300});
+        var popup_f2c3eb4c7808c20488cae9f133c3f2f3 = L.popup({"maxWidth": 300});
 
         
             
-                var html_83be5be46a29487b5056ab00aaa9c0ca = $(`<div id="html_83be5be46a29487b5056ab00aaa9c0ca" style="width: 100.0%; height: 100.0%;">     <b>PLACE COMMANDERIE</b><br>     <br>     <b>Stands utilisés:</b> 1 / 18<br>     <i>17 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_c8563b711de3318ab98618a57de1e027.setContent(html_83be5be46a29487b5056ab00aaa9c0ca);
+                var html_275f63584cf9b1aec9a0848370142733 = $(`<div id="html_275f63584cf9b1aec9a0848370142733" style="width: 100.0%; height: 100.0%;">     <b>PLACE COMMANDERIE</b><br>     <br>     <b>Stands utilisés:</b> 1 / 18<br>     <i>17 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
+                popup_f2c3eb4c7808c20488cae9f133c3f2f3.setContent(html_275f63584cf9b1aec9a0848370142733);
             
         
 
-        marker_df195673a55a20fb54d764f7dd8bdf2c.bindPopup(popup_c8563b711de3318ab98618a57de1e027)
+        marker_9b278e56f9946fdac610a559c2ad833c.bindPopup(popup_f2c3eb4c7808c20488cae9f133c3f2f3)
         ;
 
         
     
     
-            var marker_c2889e1f7db5ccc6ada57a9a97a964fd = L.marker(
+            var marker_441a1fbd622153f027ec0a1472488b5f = L.marker(
                 [48.6957176856775, 6.17133838702303],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_c7a2cbda76831d5a4f5588c2673d2185 = L.AwesomeMarkers.icon(
+            var icon_d4c8470ff1ab44481f385bcc7075b039 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "orange", "prefix": "glyphicon"}
             );
-            marker_c2889e1f7db5ccc6ada57a9a97a964fd.setIcon(icon_c7a2cbda76831d5a4f5588c2673d2185);
+            marker_441a1fbd622153f027ec0a1472488b5f.setIcon(icon_d4c8470ff1ab44481f385bcc7075b039);
         
     
-        var popup_5ecb24ff753d31d2c24cf85051ea340e = L.popup({"maxWidth": 300});
+        var popup_8a3aea2dbd0704c5adc403a00d3eab6f = L.popup({"maxWidth": 300});
 
         
             
-                var html_e2629bc3d37c5199130321f44a6ef050 = $(`<div id="html_e2629bc3d37c5199130321f44a6ef050" style="width: 100.0%; height: 100.0%;">     <b>CONSERVATOIRE - MANUFACTURE</b><br>     <br>     <b>Stands utilisés:</b> 14 / 15<br>     <i>1 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 8<br></div>`)[0];
-                popup_5ecb24ff753d31d2c24cf85051ea340e.setContent(html_e2629bc3d37c5199130321f44a6ef050);
+                var html_6b4c8186db5d8ff09c58f077d9c62ca5 = $(`<div id="html_6b4c8186db5d8ff09c58f077d9c62ca5" style="width: 100.0%; height: 100.0%;">     <b>CONSERVATOIRE - MANUFACTURE</b><br>     <br>     <b>Stands utilisés:</b> 14 / 15<br>     <i>1 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à retirer:</b> 8<br></div>`)[0];
+                popup_8a3aea2dbd0704c5adc403a00d3eab6f.setContent(html_6b4c8186db5d8ff09c58f077d9c62ca5);
             
         
 
-        marker_c2889e1f7db5ccc6ada57a9a97a964fd.bindPopup(popup_5ecb24ff753d31d2c24cf85051ea340e)
+        marker_441a1fbd622153f027ec0a1472488b5f.bindPopup(popup_8a3aea2dbd0704c5adc403a00d3eab6f)
         ;
 
         
     
     
-            var marker_6bb292e910b05efd70fd6e2e3d5f976a = L.marker(
+            var marker_5081f83e717aa18ae6ac6bced668680c = L.marker(
                 [48.679501, 6.167344],
                 {}
-            ).addTo(map_ceabf1edf52c4b363fc57f5be6beea0a);
+            ).addTo(map_3b327f5b7fbfa9cba5d9661c942326e6);
         
     
-            var icon_06e5423c60fe2170c2f1200651d55e50 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            var icon_265d6a9b8f12f4b5fed3ccbdde15c8a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_6bb292e910b05efd70fd6e2e3d5f976a.setIcon(icon_06e5423c60fe2170c2f1200651d55e50);
+            marker_5081f83e717aa18ae6ac6bced668680c.setIcon(icon_265d6a9b8f12f4b5fed3ccbdde15c8a6);
         
     
-        var popup_c4a97410eb874b92210678eab02c5eec = L.popup({"maxWidth": 300});
+        var popup_8ac81592cdf1f4462852193200ff09c3 = L.popup({"maxWidth": 300});
 
         
             
-                var html_edba021079c15926e28f7c5dab995a8f = $(`<div id="html_edba021079c15926e28f7c5dab995a8f" style="width: 100.0%; height: 100.0%;">     <b>NANCY THERMAL (CB)</b><br>     <br>     <b>Stands utilisés:</b> 1 / 18<br>     <i>17 places libres</i>     <br><br><b>Equilibrage</b><br><b>Vélos à ajouter:</b> 5<br></div>`)[0];
-                popup_c4a97410eb874b92210678eab02c5eec.setContent(html_edba021079c15926e28f7c5dab995a8f);
+                var html_9f98856129d05c369d5ec962a97a8b55 = $(`<div id="html_9f98856129d05c369d5ec962a97a8b55" style="width: 100.0%; height: 100.0%;">     <b>NANCY THERMAL (CB)</b><br>     <br>     <b>Stands utilisés:</b> 9 / 18<br>     <i>9 places libres</i>     </div>`)[0];
+                popup_8ac81592cdf1f4462852193200ff09c3.setContent(html_9f98856129d05c369d5ec962a97a8b55);
             
         
 
-        marker_6bb292e910b05efd70fd6e2e3d5f976a.bindPopup(popup_c4a97410eb874b92210678eab02c5eec)
+        marker_5081f83e717aa18ae6ac6bced668680c.bindPopup(popup_8ac81592cdf1f4462852193200ff09c3)
         ;
 
         
