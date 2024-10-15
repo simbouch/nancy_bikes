@@ -1,79 +1,162 @@
 
-# 🚴‍♂️ Nancy Bike Rebalancing App 🚴‍♀️
+# Bike Station Rebalancing App for Nancy
 
-## Project Overview
+## Overview
 
-The **Nancy Bike Rebalancing App** is an interactive tool developed with Streamlit to optimize the redistribution of bikes across various bike stations in Nancy, France. It helps users determine the best station to either collect or deposit bikes, ensuring an efficient rebalancing process.
+This project is a Streamlit-based web application designed to help manage the bike stations in Nancy, France. It offers real-time visualization of the bike stations, highlighting those that are overstocked or understocked, and provides an optimized route for rebalancing bikes between stations. 
+
+<img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/screenshot.png" width="850"/>
+
+## Features
+
+- **Interactive Map**: Displays the locations of all bike stations in Nancy, along with their current status (balanced, overstocked, understocked).
+- **Driver Location**: Allows the driver to input their current position and view it on the map.
+- **Vehicle Parameters**: Set the vehicle's capacity and the current number of bikes.
+- **Route Optimization**: Calculates the best route for collecting or depositing bikes to achieve balance across the stations.
+- **Real-time Data**: Pulls live data from the JCDecaux API to keep the map updated.
+
+## How It Works
+
+1. **Data Loading**:
+   - The app fetches live data about bike stations in Nancy from the JCDecaux API using the function `get_bike_station_data` in `call_api.py`. This data includes the number of available bikes, empty stands, and the station's coordinates.
+   - The data is processed in `load_bike_station.py` and returned as a Pandas DataFrame.
+
+2. **Classification of Bike Stations**:
+   - The stations are classified as either **overstocked** (too many bikes), **understocked** (too few bikes), or **balanced**. This is done in `balance_analysis.py` using the available bike data and station capacity.
+
+3. **Map Creation**:
+   - A map centered on Nancy is created using Folium in `map_utils.py`. 
+   - Bike stations are added to the map with color-coded markers based on their classification: red for overstocked, green for understocked, and blue for balanced.
+
+4. **Driver Location**:
+   - The user inputs their current location, either by manually entering latitude and longitude, or by using the default location (Nancy, France). The driver's position is then displayed on the map.
+
+5. **Route Optimization**:
+   - The app uses OSMnx to create a road network of Nancy (`create_nancy_graph` in `route_optimizer.py`).
+   - Based on the driver’s location and the station data, the app calculates the best station to collect or deposit bikes to achieve balance. This is done using the function `find_best_station`, which finds the shortest path to the optimal station using NetworkX.
+
+6. **Display and Interaction**:
+   - The calculated route is displayed on the map, and a tooltip provides details such as the distance to the station and the number of bikes to collect or deposit.
+   - Users can update their location, vehicle parameters, and refresh the data in real-time, ensuring up-to-date information.
 
 ## Scoring System
 
-The scoring system is a key part of the application. It helps to determine the most optimal station for rebalancing based on:
+The scoring system in the **Nancy Bike Rebalancing App** is crucial for determining the best station to either **collect** or **deposit** bikes. It ensures that stations are rebalanced efficiently by taking into account the current load of bikes at each station and the user's position.
 
-1. **Distance**: Stations closer to the user's location are prioritized.
-2. **Availability**:
-   - **For collecting**: Stations with more available bikes score higher.
-   - **For depositing**: Stations with more available bike stands score higher.
+### Key Factors
+
+The scoring system balances two main factors:
+
+1. **Distance**: The proximity of a station to the user’s current location.
+2. **Availability**: The number of bikes available at the station (for collection) or the number of empty stands (for depositing).
 
 ### Scoring Formula
 
-- **Collecting Bikes**:
-  \[
-  	ext{{score}} = rac{{	ext{{available\_bikes}}}}{{	ext{{distance}} + 1}}
-  \]
+The formula balances **availability** and **distance** to assign a score to each station. The score helps prioritize stations, with higher scores indicating better stations for rebalancing.
 
-- **Depositing Bikes**:
-  \[
-  	ext{{score}} = rac{{	ext{{available\_bike\_stands}}}}{{	ext{{distance}} + 1}}
-  \]
+#### For Collecting Bikes:
+- **Formula**: 
 
-This formula ensures that stations with more bikes or available stands and closer proximity get a higher score, leading to more efficient rebalancing.
+   <img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_collecting.png"/>
 
-## App Functionality
+- **Explanation**: 
+  - The **numerator** (`available_bikes`) represents the number of bikes that can be collected at the station. More bikes result in a higher score.
+  - The **denominator** (`distance + 1`) penalizes stations that are farther away from the user, while the `+1` prevents division by zero.
 
-1. **View Bike Stations on a Map**: All bike stations in Nancy are displayed on an interactive map, with color-coded markers indicating their status (overstocked, understocked, balanced).
-2. **Enter Location**: Users can either manually enter their location or use automated geolocation.
-3. **Choose Action**: The user selects whether they want to **collect** bikes from overstocked stations or **deposit** bikes into understocked stations.
-4. **Calculate Optimal Route**: The app calculates and displays the best station based on the scoring system.
-5. **Rebalancing**: After the station is selected, the app provides information on how many bikes to collect or deposit.
+#### For Depositing Bikes:
+- **Formula**: 
 
-## Secrets Management
+   <img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_depositing.png"/>
 
-The app uses a `secrets.toml` file to securely store API keys for accessing the JCDecaux bike station data. This file is located in the `.streamlit` directory and is not tracked by version control (it is added to `.gitignore`).
+- **Explanation**: 
+  - The **numerator** (`available_bike_stands`) represents the number of available stands at the station. More empty stands result in a higher score.
+  - The **denominator** (`distance + 1`) works similarly to the collection formula, prioritizing closer stations while avoiding division by zero.
 
-### Configuration of `secrets.toml`
+### Why Add `+1` to the Distance?
 
-Create a `.streamlit/secrets.toml` file with the following content:
+The `+1` ensures that:
+- **Division by zero**: When the user is at the station (distance = 0), the formula does not divide by zero.
+- **Balanced weights**: It prevents distance from having an overly strong influence, allowing availability to play a more significant role in the decision.
 
-```toml
-[secrets]
-JCDECAUX_API_KEY = "your_actual_api_key"
+### Decision Criteria
+
+- **For Collecting**: Stations with more available bikes are prioritized, ensuring that those with an oversupply of bikes are rebalanced first.
+- **For Depositing**: Stations with more available stands are prioritized, ensuring that understocked stations receive bikes.
+
+### Benefits of the Scoring System
+
+- **Efficiency**: The system ensures that the user is directed to the best station, saving time and effort while keeping stations balanced.
+- **Dynamic**: The scoring system adjusts in real time as the user moves or the station status changes, ensuring optimal decisions throughout the process.
+
+## Project Structure
+
+```
+.
+├── src
+│   ├── __init__.py
+│   ├── balance_analysis.py
+│   ├── call_api.py
+│   ├── load_bike_station.py
+│   ├── map_utils.py
+│   └── route_optimizer.py
+├── main.py
+├── stan.jpg
+├── requirements.txt
 ```
 
-The API key is accessed securely in the code via `st.secrets["JCDECAUX_API_KEY"]`.
+### Folder and File Descriptions
 
-## Setup and Installation
+- **src**: Contains all the utility scripts for data loading, analysis, and map creation.
+  - `balance_analysis.py`: Classifies the bike stations based on their current balance (overstocked, understocked, or balanced).
+  - `call_api.py`: Fetches live data from the JCDecaux API.
+  - `load_bike_station.py`: Handles loading and preprocessing of bike station data.
+  - `map_utils.py`: Contains functions for creating the map, adding stations and driver positions, and displaying optimized routes.
+  - `route_optimizer.py`: Optimizes the route for bike rebalancing between stations.
+- **main.py**: The main application script, built using Streamlit. It provides the user interface for interacting with the app, loading data, displaying maps, and calculating routes.
+- **stan.jpg**: A sample image used in the project (optional or illustrative).
+- **requirements.txt**: Lists the dependencies required for running the project.
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/nancy_bikes.git
-   cd nancy_bikes
-   ```
+## How to Run
 
-2. **Install the Required Dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. **Clone the repository**:
+    ```bash
+    git clone <your-repo-url>
+    cd <project-directory>
+    ```
 
-3. **Add Your API Key**:
-   Create a `.streamlit/secrets.toml` file as described above and add your JCDecaux API key.
+2. **Install dependencies**:
+    Make sure you have Python installed, then run:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-4. **Run the App**:
-   Start the Streamlit app by running:
-   ```bash
-   streamlit run main.py
-   ```
+3. **Run the application**:
+    ```bash
+    streamlit run main.py
+    ```
 
-## Conclusion
+4. **Interact with the app**:
+    - Enter your vehicle's current capacity and load.
+    - Choose whether to collect or deposit bikes.
+    - View the optimized route on the map.
 
-The Nancy Bike Rebalancing App provides an efficient way to balance bike stations in the city of Nancy. Using the scoring system, users are directed to the most suitable station for collecting or depositing bikes, ensuring smoother operations and improved availability for all users.
+## API Integration
+
+The app fetches live data from the JCDecaux bike station API using the contract name `nancy`. Make sure to add your own API key in the `load_bike_station.py` file for the data fetching to work correctly.
+
+## Requirements
+
+- Python 3.x
+- Streamlit
+- Pandas
+- Geopy
+- Folium
+- OSMnx
+- NetworkX
+
+For a full list of dependencies, refer to the `requirements.txt` file.
+
+## License
+
+This project is open-source and free to use.
 

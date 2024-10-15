@@ -1,7 +1,10 @@
 import os
+
 import pandas as pd
 import streamlit as st
 from call_api import get_bike_station_data
+
+
 
 def load_bike_station_data() -> pd.DataFrame:
     """
@@ -10,12 +13,14 @@ def load_bike_station_data() -> pd.DataFrame:
     Utilise le nom du contrat 'nancy' et la clé API stockée dans secrets.toml ou en environnement.
     """
     contract_name = 'nancy'
+
     try:
         # Use st.secrets if running with Streamlit
         api_key = st.secrets["secrets"]["JCDECAUX_API_KEY"]
     except KeyError:
         # Fallback to environment variable if running without Streamlit
         api_key = os.getenv("JCDECAUX_API_KEY", "your_backup_api_key")
+
     
     data = get_bike_station_data(contract_name, api_key)
     if data:
