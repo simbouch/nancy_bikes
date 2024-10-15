@@ -1,10 +1,76 @@
 import requests
 import folium
+import json
+import os
 from Src.call_api import call_api
 
 # Thresholds for "almost empty" and "almost full" (percentages)
 almost_empty = 30  # Percentage below which the station is considered almost empty
 almost_full = 70   # Percentage above which the station is considered almost full
+
+# Margin for balancing
+margin_amount = 5  # Number of bikes to be added or removed for balancing
+
+def analyse_stations(stations_data):
+    analysed_stations = []
+
+    # Analyze each station and calculate its status, including additional information
+    for station in stations_data:
+        station_id = station['number']
+        name_with_id = station['name']
+        name = name_with_id.split(" - ", 1)[1].strip()
+        available_bikes = station['available_bikes']
+        available_stands = station['available_bike_stands']
+        total_capacity = available_bikes + available_stands
+        latitude = station['position']['lat']
+        longitude = station['position']['lng']
+
+        # Determine station status and bikes to add/remove
+        if total_capacity > 0:
+            bike_percentage = (available_bikes / total_capacity) * 100
+        else:
+            bike_percentage = 0
+
+        if available_bikes == 0:
+            status = "empty"
+            bikes_to_add = max(available_stands, margin_amount)
+            bikes_to_remove = 0
+        elif bike_percentage < almost_empty:
+            status = "almost_empty"
+            bikes_needed_for_balance = int((almost_empty - bike_percentage) / 100 * total_capacity)
+            bikes_to_add = max(bikes_needed_for_balance, margin_amount)
+            bikes_to_remove = 0
+        elif bike_percentage > almost_full:
+            status = "almost_full"
+            bikes_needed_for_balance = int((bike_percentage - almost_full) / 100 * total_capacity)
+            bikes_to_add = 0
+            bikes_to_remove = bikes_needed_for_balance + margin_amount
+        elif available_stands == 0:
+            status = "full"
+            bikes_to_add = 0
+            bikes_to_remove = available_bikes + margin_amount
+        else:
+            status = "balanced"
+            bikes_to_add = 0
+            bikes_to_remove = 0
+
+        # Add station data to the list with all the relevant details
+        analysed_stations.append({
+            'station_id': station_id,
+            'name': name,
+            'latitude': latitude,
+            'longitude': longitude,
+            'available_bikes': available_bikes,
+            'available_stands': available_stands,
+            'total_capacity': total_capacity,
+            'status': status,
+            'bikes_to_remove': bikes_to_remove,
+            'bikes_to_add': bikes_to_add
+        })
+
+    # Write or update the json file with all station data
+    with open('analysed_stations.json', 'w') as json_file:
+        json.dump(analysed_stations, json_file, indent=4)
 
 # Call the API to get bike station data for Nancy
 response = call_api('nancy')
@@ -12,6 +78,7 @@ response = call_api('nancy')
 # Vérifier si la requête est réussie
 if response.status_code == 200:
     stations_data = response.json()
+    analyse_stations(stations_data)
 else:
     print("Erreur lors de la récupération des données :", response.status_code)
     stations_data = []
@@ -20,71 +87,48 @@ else:
 nancy_coords = [48.692054, 6.184417]
 mymap = folium.Map(location=nancy_coords, zoom_start=13)
 
-# Initialize variables for statistics
-total_bikes = 0
-total_stands = 0
-bikes_to_move = 0
-stations_above_full = 0
-empty_stations = 0
+# Load the analysed station data from the json file
+if os.path.exists('analysed_stations.json'):
+    with open('analysed_stations.json', 'r') as json_file:
+        analysed_stations = json.load(json_file)
+else:
+    analysed_stations = []
 
-# Loop over the stations to populate the map and calculate statistics
-for station in stations_data:
-    lat = station['position']['lat']
-    lng = station['position']['lng']
-    name_with_id = station['name']
+# Loop over the analysed stations and create the map markers
+for station in analysed_stations:
+    lat = station['latitude']
+    lng = station['longitude']
 
-    # Remove the ID by splitting on the first hyphen and stripping any extra spaces
-    name = name_with_id.split(" - ", 1)[1].strip()
-
-    available_bikes = station['available_bikes']
-    available_stands = station['available_bike_stands']
-    total_capacity = available_bikes + available_stands  # Calculating total capacity
-
-    # Update the statistics
-    total_bikes += available_bikes
-    total_stands += available_stands
-
-    if available_bikes == 0:
-        empty_stations += 1
-    if total_capacity > 0:
-        bike_percentage = (available_bikes / total_capacity) * 100
-    else:
-        bike_percentage = 0
-
-    if bike_percentage > almost_full:
-        bikes_to_move += available_bikes
-        stations_above_full += 1
-
-        # Calculate bikes to redistribute
-        excess_bikes = int((bike_percentage - almost_full) / 100 * total_capacity)
-    else:
-        excess_bikes = 0
-
-    # Créer un popup avec les informations en temps réel
+    # Create a popup with all the analyzed data
     popup_text = f"""
-    <b>{name}</b><br><br>
-    <b>Stands utilisés:</b> {available_bikes} / {total_capacity}<br>
-    <i>{available_stands} places libres</i><br>
+    <b>{station['name']}</b><br>
+    <br>
+    <b>Stands utilisés:</b> {station['available_bikes']} / {station['total_capacity']}<br>
+    <i>{station['available_stands']} places libres</i>
     """
 
-    # Add 'Vélos à redistribuer' if there are excess bikes
-    if excess_bikes > 0:
-        popup_text += f"<br><b>Vélos à redistribuer:</b> {excess_bikes}<br>"
+    # Add the 'Equilibrage' section only if the station is not balanced
+    if station['bikes_to_add'] > 0 or station['bikes_to_remove'] > 0:
+        popup_text += "<br><br><b>Equilibrage</b><br>"
+        if station['bikes_to_remove'] > 0:
+            popup_text += f"<b>Vélos à retirer:</b> {station['bikes_to_remove']}<br>"
+        if station['bikes_to_add'] > 0:
+            popup_text += f"<b>Vélos à ajouter:</b> {station['bikes_to_add']}<br>"
 
     # Folium's Popup allows you to set the maximum width (in pixels)
     popup = folium.Popup(popup_text, max_width=300)
 
     # Color logic based on station status
-    if available_bikes == 0:
-        marker_color = 'lightgray'  # Station empty
-    elif available_stands == 0:
-        marker_color = 'red'  # Station full
-    elif bike_percentage < almost_empty:
-        marker_color = 'blue'  # Station almost empty
-    elif bike_percentage > almost_full:
-        marker_color = 'orange'  # Station almost full
-    else:
-        marker_color = 'green'  # Station in between almost_empty and almost_full
+    if station['status'] == 'empty':
+        marker_color = 'lightgray'
+    elif station['status'] == 'almost_empty':
+        marker_color = 'blue'
+    elif station['status'] == 'balanced':
+        marker_color = 'green'
+    elif station['status'] == 'almost_full':
+        marker_color = 'orange'
+    elif station['status'] == 'full':
+        marker_color = 'red'
 
     # Ajouter un marqueur avec un popup
     folium.Marker(
@@ -93,10 +137,16 @@ for station in stations_data:
         icon=folium.Icon(color=marker_color)
     ).add_to(mymap)
 
-# Calculate percentages for statistics
-num_stations = len(stations_data)
-empty_station_percentage = (empty_stations / num_stations) * 100 if num_stations > 0 else 0
-full_station_percentage = (stations_above_full / num_stations) * 100 if num_stations > 0 else 0
+# Calculate statistics for display
+total_bikes = sum(s['available_bikes'] for s in analysed_stations)
+total_stands = sum(s['available_stands'] for s in analysed_stations)
+total_capacity = sum(s['available_bikes'] + s['available_stands'] for s in analysed_stations)  # Fix for total capacity
+num_stations = len(analysed_stations)
+stations_above_full = sum(1 for s in analysed_stations if s['status'] == 'almost_full')
+full_stations = sum(1 for s in analysed_stations if s['status'] == 'full')
+stations_almost_empty = sum(1 for s in analysed_stations if s['status'] == 'almost_empty')
+empty_stations = sum(1 for s in analysed_stations if s['status'] == 'empty')
+bikes_to_move = sum(s['bikes_to_remove'] for s in analysed_stations)
 
 # Create the custom HTML to show on the map
 html = f"""
@@ -104,14 +154,16 @@ html = f"""
         <h4><b>Statistiques des stations de vélos</b></h4>
         <ul>
             <li><b>Total vélos :</b> {total_bikes}</li>
-            <li><b>Total places libres :</b> {total_stands}</li>
-            <li><b>Total places libres :</b> {total_capacity}</li>
+            <li><b>Total places libres :</b> {total_stands} / {total_capacity}</li>
         </ul> <br>
 
-        <h4><b>Infos equilibrage</b></h4>
+        <h4><b>Infos équilibrage</b></h4>
         <ul>
+            <li><b>Total stations :</b> {num_stations}</li>
             <li><b>Vélos à redistribuer :</b> {bikes_to_move}</li>
-            <li><b>Stations presque pleines :</b> {stations_above_full} / {num_stations}</li>
+            <li><b>Stations à vider :</b> {stations_above_full} / {num_stations}</li>
+            <li><b>Stations pleines :</b> {full_stations} / {num_stations}</li>
+            <li><b>Stations à remplir :</b> {stations_almost_empty} / {num_stations}</li>
             <li><b>Stations vides :</b> {empty_stations} / {num_stations}</li> <br>
         </ul>
 
@@ -126,7 +178,6 @@ html = f"""
 """
 
 # Add the custom HTML to the map
-from folium.plugins import FloatImage
 mymap.get_root().html.add_child(folium.Element(html))
 
 # Enregistrer la carte dans un fichier HTML
