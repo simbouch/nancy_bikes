@@ -27,3 +27,4 @@ def classify_station_balance(stations_df: pd.DataFrame) -> pd.DataFrame:
     stations_df = stations_df.copy()
     stations_df['balance_status'] = stations_df.apply(balance_status, axis=1)
     return stations_df
+j
