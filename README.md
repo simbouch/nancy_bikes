@@ -55,18 +55,16 @@ The formula balances **availability** and **distance** to assign a score to each
 
 #### For Collecting Bikes:
 - **Formula**: 
-  \[
-  \text{score} = \frac{\text{available\_bikes}}{\text{distance} + 1}
-  \]
+  <img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_collecting.png"/>
+
 - **Explanation**: 
   - The **numerator** (`available_bikes`) represents the number of bikes that can be collected at the station. More bikes result in a higher score.
   - The **denominator** (`distance + 1`) penalizes stations that are farther away from the user, while the `+1` prevents division by zero.
 
 #### For Depositing Bikes:
 - **Formula**: 
-  \[
-  \text{score} = \frac{\text{available\_bike\_stands}}{\text{distance} + 1}
-  \]
+  <img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_depositing.png"/>
+
 - **Explanation**: 
   - The **numerator** (`available_bike_stands`) represents the number of available stands at the station. More empty stands result in a higher score.
   - The **denominator** (`distance + 1`) works similarly to the collection formula, prioritizing closer stations while avoiding division by zero.
