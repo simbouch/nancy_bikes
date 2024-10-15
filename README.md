@@ -56,7 +56,7 @@ The formula balances **availability** and **distance** to assign a score to each
 #### For Collecting Bikes:
 - **Formula**: 
 
-<img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_collecting.png"/>
+   <img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_collecting.png"/>
 
 - **Explanation**: 
   - The **numerator** (`available_bikes`) represents the number of bikes that can be collected at the station. More bikes result in a higher score.
@@ -65,7 +65,7 @@ The formula balances **availability** and **distance** to assign a score to each
 #### For Depositing Bikes:
 - **Formula**: 
 
-<img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_depositing.png"/>
+   <img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/formula_depositing.png"/>
 
 - **Explanation**: 
   - The **numerator** (`available_bike_stands`) represents the number of available stands at the station. More empty stands result in a higher score.
