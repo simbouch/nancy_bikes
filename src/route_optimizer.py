@@ -1,11 +1,17 @@
-#src/route_optimizer.py
+# src/route_optimizer.py
 
 import networkx as nx
 import osmnx as ox
+import pandas as pd
+from typing import List, Dict, Tuple, Optional
 
-# Créer un graphe du réseau routier à Nancy
-def create_nancy_graph():
-    """Creates a road network graph of Nancy using OSMnx."""
+def create_nancy_graph() -> nx.MultiDiGraph:
+    """
+    Crée un graphe réseau routier de Nancy en utilisant OSMnx.
+
+    Returns:
+        nx.MultiDiGraph: Graphe réseau routier de Nancy.
+    """
     return ox.graph_from_place("Nancy, France", network_type='drive')
 
 # Trouver la station la plus proche du point actuel
@@ -76,10 +82,12 @@ def calculate_balancing_routes(G, stations_df, current_coords, vehicle_capacity=
                         'station_name': closest_station['name']
                     })
                     current_coords = understocked_coords
+                    bikes_to_drop = min(current_bike_load, closest_station['bike_stands'] * 0.3 - closest_station['available_bikes'])
+                    current_bike_load -= bikes_to_drop
+                    understocked_stations.loc[closest_station.name, 'available_bikes'] += bikes_to_drop
                     if understocked_stations.loc[closest_station.name, 'available_bikes'] >= closest_station['bike_stands'] * 0.3:
                         understocked_stations.drop(closest_station.name, inplace=True)
                 except nx.NetworkXNoPath:
                     continue
 
-
-    return rebalancing_routes,current_coords
+    return rebalancing_routes

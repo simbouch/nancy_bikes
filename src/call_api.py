@@ -1,3 +1,4 @@
+
 # src/call_api.py
 
 import requests
@@ -30,5 +31,3 @@ def get_bike_station_data(contract_name, api_key):
     except requests.exceptions.RequestException as err:
         print(f"Erreur: {err}")
     return None
-
-
