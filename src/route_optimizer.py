@@ -52,8 +52,6 @@ def find_best_station(
     driver_coords: Tuple[float, float],
     stations_df: pd.DataFrame,
     action: str,  # 'collect' ou 'deposit'
-    vehicle_capacity: int,
-    current_load: int
 ) -> Optional[Dict]:
     """
     Trouve la meilleure station pour collecter ou déposer des vélos.
@@ -113,9 +111,9 @@ def find_best_station(
 
     # Déterminer le nombre de vélos à collecter ou déposer
     if action == 'collect':
-        bikes = min(vehicle_capacity - current_load, best_station['available_bikes'])
+        bikes = best_station['available_bikes']
     else:  # 'deposit'
-        bikes = min(current_load, best_station['available_bike_stands'])
+        bikes =  best_station['available_bike_stands']
 
     return {
         'action': action,
