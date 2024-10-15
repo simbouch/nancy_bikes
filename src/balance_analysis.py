@@ -10,3 +10,4 @@ def classify_station_balance(stations_df):
         else ('understocked' if x['available_bikes'] < x['bike_stands'] * 0.3 else 'balanced'), axis=1
     )
     return stations_df
+j

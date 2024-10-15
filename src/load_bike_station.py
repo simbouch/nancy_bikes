@@ -2,7 +2,7 @@ import pandas as pd
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.call_api import get_bike_station_data
+from Src.call_api import get_bike_station_data
 
 # Charger les données des stations de vélos via l'API
 def load_bike_station_data(contract_name, api_key):

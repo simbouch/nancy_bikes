@@ -76,12 +76,10 @@ def calculate_balancing_routes(G, stations_df, current_coords, vehicle_capacity=
                         'station_name': closest_station['name']
                     })
                     current_coords = understocked_coords
-                    bikes_to_drop = min(current_bike_load, closest_station['bike_stands'] * 0.3 - closest_station['available_bikes'])
-                    current_bike_load -= bikes_to_drop
-                    understocked_stations.loc[closest_station.name, 'available_bikes'] += bikes_to_drop
                     if understocked_stations.loc[closest_station.name, 'available_bikes'] >= closest_station['bike_stands'] * 0.3:
                         understocked_stations.drop(closest_station.name, inplace=True)
                 except nx.NetworkXNoPath:
                     continue
 
-    return rebalancing_routes
+
+    return rebalancing_routes,current_coords
