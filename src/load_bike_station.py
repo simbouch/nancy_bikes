@@ -1,10 +1,8 @@
 # src/load_bike_station.py
 
 import pandas as pd
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from src.call_api import get_bike_station_data
+from typing import Optional
+from call_api import get_bike_station_data
 
 def load_bike_station_data() -> pd.DataFrame:
     """
