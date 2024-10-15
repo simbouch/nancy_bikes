@@ -1,4 +1,3 @@
-
 # src/call_api.py
 
 import requests
