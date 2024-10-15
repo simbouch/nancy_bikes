@@ -43,4 +43,3 @@ import toml
 
 # Load secrets from the .streamlit/secrets.toml file
 secrets = toml.load(".streamlit/secrets.toml")
-print(secrets["secrets"]["JCDECAUX_API_KEY"])
