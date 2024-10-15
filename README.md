@@ -1,52 +1,50 @@
 
-# 🚴‍♂️ Rééquilibrage des Stations de Vélos à Nancy 🚴‍♀️
+# 🚴‍♂️ Nancy Bike Rebalancing App 🚴‍♀️
 
-## Introduction
+## Explanation of the Scoring System and App Functionality
 
-L'application **Rééquilibrage des Stations de Vélos à Nancy** est un outil Streamlit pour visualiser et optimiser le rééquilibrage des stations de vélos en libre-service à Nancy, France. Elle permet aux utilisateurs de choisir d'ajouter ou de collecter des vélos à des stations en fonction des besoins.
+### **Scoring System**
 
-## Fonctionnalités
+The scoring system in the **Nancy Bike Rebalancing App** helps determine the best station for **collecting** or **depositing** bikes. The scoring is based on two key factors:
 
-- **Affichage de la Carte** avec toutes les stations de vélos à Nancy.
-- **Saisie de la Position du Conducteur** et calcul du meilleur itinéraire.
-- **Action de Collecte ou Dépôt** de vélos selon les besoins de rééquilibrage.
+1. **Distance**: Stations closer to the user's location are prioritized.
+2. **Availability**:
+   - **Collecting**: Stations with more available bikes score higher.
+   - **Depositing**: Stations with more free bike stands receive higher scores.
 
-## Structure du Projet
+### **How the Scoring Works**
 
+- For **collecting** bikes, the score is calculated using the formula:
+  \[
+  	ext{{score}} = rac{{	ext{{available\_bikes}}}}{{	ext{{distance}} + 1}}
+  \]
+- For **depositing** bikes, the score is:
+  \[
+  	ext{{score}} = rac{{	ext{{available\_bike\_stands}}}}{{	ext{{distance}} + 1}}
+  \]
+
+Stations with higher availability and closer proximity will receive better scores, making them the ideal choice for rebalancing.
+
+### **App Functionality**
+
+1. **View Bike Stations on a Map**: The app displays all bike stations in Nancy with color-coded markers showing their status.
+2. **Enter Location**: Users can manually enter their current location or let the app automatically detect it.
+3. **Select Action**: Choose between **collecting** bikes from overstocked stations or **depositing** into understocked stations.
+4. **Calculate Optimal Route**: The app calculates and shows the optimal route to the best station based on the scoring system.
+5. **Rebalance Bikes**: The app provides the number of bikes to collect or deposit, ensuring stations are efficiently balanced.
+
+### **Secrets Management (secrets.toml)**
+
+The API key is securely stored in a `secrets.toml` file located in the `.streamlit` directory. This file is not tracked by version control and should be added to `.gitignore`.
+
+To configure the API key, create the following structure:
 ```
-nancy_bikes/
-├── main.py
-├── src/
-│   ├── route_optimizer.py
-│   ├── load_bike_station.py
-│   ├── map_utils.py
-└── requirements.txt
+.streamlit/secrets.toml
+```
+With the content:
+```toml
+[secrets]
+JCDECAUX_API_KEY = "your_actual_api_key"
 ```
 
-## Installation
-
-1. **Cloner le dépôt** :
-    
-    git clone https://github.com/yourusername/nancy_bikes.git
-    cd nancy_bikes
-    ```
-
-2. **Installer les dépendances** :
- 
-    pip install -r requirements.txt
-    ```
-
-3. **Exécuter l'application** :
- 
-    streamlit run main.py
-    ```
-
-## Utilisation
-
-1. Choisissez votre position de départ.
-2. Sélectionnez l'action de **Collecte** ou **Dépôt** de vélos.
-3. L'application vous proposera l'itinéraire optimal pour rééquilibrer les vélos.
-
-## Licence
-
-Ce projet est sous licence MIT.
+This ensures that the sensitive information is securely managed.
