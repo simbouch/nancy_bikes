@@ -4,7 +4,7 @@
 
 This project is a Streamlit-based web application designed to help manage the bike stations in Nancy, France. It offers real-time visualization of the bike stations, highlighting those that are overstocked or understocked, and provides an optimized route for rebalancing bikes between stations. 
 
-<img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/screenshot.png" width="850"/>
+<img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/screenshot.png" width="850"/>
 
 ## Features
 
@@ -37,6 +37,55 @@ This project is a Streamlit-based web application designed to help manage the bi
 6. **Display and Interaction**:
    - The calculated route is displayed on the map, and a tooltip provides details such as the distance to the station and the number of bikes to collect or deposit.
    - Users can update their location, vehicle parameters, and refresh the data in real-time, ensuring up-to-date information.
+
+## Scoring System
+
+The scoring system in the **Nancy Bike Rebalancing App** is crucial for determining the best station to either **collect** or **deposit** bikes. It ensures that stations are rebalanced efficiently by taking into account the current load of bikes at each station and the user's position.
+
+### Key Factors
+
+The scoring system balances two main factors:
+
+1. **Distance**: The proximity of a station to the user’s current location.
+2. **Availability**: The number of bikes available at the station (for collection) or the number of empty stands (for depositing).
+
+### Scoring Formula
+
+The formula balances **availability** and **distance** to assign a score to each station. The score helps prioritize stations, with higher scores indicating better stations for rebalancing.
+
+#### For Collecting Bikes:
+- **Formula**: 
+  \[
+  \text{score} = \frac{\text{available\_bikes}}{\text{distance} + 1}
+  \]
+- **Explanation**: 
+  - The **numerator** (`available_bikes`) represents the number of bikes that can be collected at the station. More bikes result in a higher score.
+  - The **denominator** (`distance + 1`) penalizes stations that are farther away from the user, while the `+1` prevents division by zero.
+
+#### For Depositing Bikes:
+- **Formula**: 
+  \[
+  \text{score} = \frac{\text{available\_bike\_stands}}{\text{distance} + 1}
+  \]
+- **Explanation**: 
+  - The **numerator** (`available_bike_stands`) represents the number of available stands at the station. More empty stands result in a higher score.
+  - The **denominator** (`distance + 1`) works similarly to the collection formula, prioritizing closer stations while avoiding division by zero.
+
+### Why Add `+1` to the Distance?
+
+The `+1` ensures that:
+- **Division by zero**: When the user is at the station (distance = 0), the formula does not divide by zero.
+- **Balanced weights**: It prevents distance from having an overly strong influence, allowing availability to play a more significant role in the decision.
+
+### Decision Criteria
+
+- **For Collecting**: Stations with more available bikes are prioritized, ensuring that those with an oversupply of bikes are rebalanced first.
+- **For Depositing**: Stations with more available stands are prioritized, ensuring that understocked stations receive bikes.
+
+### Benefits of the Scoring System
+
+- **Efficiency**: The system ensures that the user is directed to the best station, saving time and effort while keeping stations balanced.
+- **Dynamic**: The scoring system adjusts in real time as the user moves or the station status changes, ensuring optimal decisions throughout the process.
 
 ## Project Structure
 
