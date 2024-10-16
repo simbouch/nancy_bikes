@@ -38,6 +38,32 @@ This project is a Streamlit-based web application designed to help manage the bi
    - The calculated route is displayed on the map, and a tooltip provides details such as the distance to the station and the number of bikes to collect or deposit.
    - Users can update their location, vehicle parameters, and refresh the data in real-time, ensuring up-to-date information.
 
+## Project Structure
+
+```
+.
+├── src
+│   ├── __init__.py
+│   ├── balance_analysis.py
+│   ├── call_api.py
+│   ├── load_bike_station.py
+│   ├── map_utils.py
+│   └── route_optimizer.py
+├── main.py
+├── requirements.txt
+```
+
+### Folder and File Descriptions
+
+- **src**: Contains all the utility scripts for data loading, analysis, and map creation.
+  - `balance_analysis.py`: Classifies the bike stations based on their current balance (overstocked, understocked, or balanced).
+  - `call_api.py`: Fetches live data from the JCDecaux API.
+  - `load_bike_station.py`: Handles loading and preprocessing of bike station data.
+  - `map_utils.py`: Contains functions for creating the map, adding stations and driver positions, and displaying optimized routes.
+  - `route_optimizer.py`: Optimizes the route for bike rebalancing between stations.
+- **main.py**: The main application script, built using Streamlit. It provides the user interface for interacting with the app, loading data, displaying maps, and calculating routes.
+- **requirements.txt**: Lists the dependencies required for running the project.
+
 ## Scoring System
 
 The scoring system in the **Nancy Bike Rebalancing App** is crucial for determining the best station to either **collect** or **deposit** bikes. It ensures that stations are rebalanced efficiently by taking into account the current load of bikes at each station and the user's position.
@@ -101,32 +127,6 @@ Example of `secrets.toml`:
 JCDECAUX_API_KEY = "your_jcdecaux_api_key_here"
 Make sure to store this file in the .streamlit/ directory and exclude it from version control using .gitignore.
 ```
-
-## Project Structure
-
-```
-.
-├── src
-│   ├── __init__.py
-│   ├── balance_analysis.py
-│   ├── call_api.py
-│   ├── load_bike_station.py
-│   ├── map_utils.py
-│   └── route_optimizer.py
-├── main.py
-├── requirements.txt
-```
-
-### Folder and File Descriptions
-
-- **src**: Contains all the utility scripts for data loading, analysis, and map creation.
-  - `balance_analysis.py`: Classifies the bike stations based on their current balance (overstocked, understocked, or balanced).
-  - `call_api.py`: Fetches live data from the JCDecaux API.
-  - `load_bike_station.py`: Handles loading and preprocessing of bike station data.
-  - `map_utils.py`: Contains functions for creating the map, adding stations and driver positions, and displaying optimized routes.
-  - `route_optimizer.py`: Optimizes the route for bike rebalancing between stations.
-- **main.py**: The main application script, built using Streamlit. It provides the user interface for interacting with the app, loading data, displaying maps, and calculating routes.
-- **requirements.txt**: Lists the dependencies required for running the project.
 
 ## How to Run
 
