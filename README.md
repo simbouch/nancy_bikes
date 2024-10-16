@@ -100,6 +100,7 @@ Example of `secrets.toml`:
 [secrets]
 JCDECAUX_API_KEY = "your_jcdecaux_api_key_here"
 Make sure to store this file in the .streamlit/ directory and exclude it from version control using .gitignore.
+```
 
 ## Project Structure
 
