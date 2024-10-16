@@ -87,6 +87,20 @@ The `+1` ensures that:
 - **Efficiency**: The system ensures that the user is directed to the best station, saving time and effort while keeping stations balanced.
 - **Dynamic**: The scoring system adjusts in real time as the user moves or the station status changes, ensuring optimal decisions throughout the process.
 
+## Deployment on Streamlit Cloud
+
+The app is deployed on Streamlit Cloud and can be accessed via (https://nancy-bikes.streamlit.app/).
+
+### Streamlit Secrets Management
+
+To keep the API key secure, the project uses Streamlit's built-in secrets management. The `secrets.toml` file contains the API key and is not shared publicly for security purposes.
+
+Example of `secrets.toml`:
+```toml
+[secrets]
+JCDECAUX_API_KEY = "your_jcdecaux_api_key_here"
+Make sure to store this file in the .streamlit/ directory and exclude it from version control using .gitignore.
+
 ## Project Structure
 
 ```
