@@ -7,6 +7,11 @@ This project is a Streamlit-based web application designed to help manage the bi
 
 <img src="https://raw.githubusercontent.com/simbouch/nancy_bikes/refs/heads/main/assets/images/screenshot.png" width="850"/>
 
+## README in Other Languages
+
+- [English](README.md)
+- [Français (French)](readme.fr.md)
+
 ## Features
 
 - **Interactive Map**: Displays the locations of all bike stations in Nancy, along with their current status (balanced, overstocked, understocked).
