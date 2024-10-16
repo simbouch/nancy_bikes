@@ -169,5 +169,18 @@ L'application récupère des données en temps réel depuis l'API JCDecaux en ut
 Pour une liste complète des dépendances, consultez le fichier `requirements.txt`.
 
 ## Licence
-
 Ce projet est open-source et libre d'utilisation.
+
+## To-Do List for Real-Time Location Tracking
+1. Integrate Geolocation API (JavaScript)
+Use navigator.geolocation.watchPosition() to continuously track the user’s location.
+Handle errors when location access is denied or unavailable.
+2. Update User Position on Map
+Add a marker for the user’s position on the map.
+Update the marker dynamically as the user moves.
+3. Send Location Updates to Back-End (Streamlit)
+Use AJAX or fetch API to send updated coordinates to the back-end (Streamlit).
+Periodically refresh the map or use WebSockets for continuous updates.
+4. Display Real-Time Position in Streamlit
+Show the user’s location on the Folium map within Streamlit.
+Update the map when the user’s location changes
