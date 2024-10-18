@@ -1,9 +1,7 @@
-# main.py
-
 import streamlit as st
 import pandas as pd
 import sys
-from geopy.geocoders import Nominatim
+import random
 from streamlit_folium import folium_static
 import folium
 
@@ -30,6 +28,15 @@ def load_data() -> pd.DataFrame:
             stations_df = stations_df.reset_index().rename(columns={'index': 'id'})
     return stations_df
 
+def get_random_position_in_nancy():
+    """
+    Returns random coordinates within Nancy, France.
+    """
+    # Approximate coordinates boundaries of Nancy, France
+    lat = random.uniform(48.65, 48.72)
+    lon = random.uniform(6.15, 6.20)
+    return lat, lon
+
 def main():
     # Configuration de la page Streamlit
     st.set_page_config(page_title="Nancy Bike Station Rebalancing", layout="wide")
@@ -40,8 +47,8 @@ def main():
         Cette application vous aide à gérer les stations de vélos à Nancy en rééquilibrant les stations surchargées et sous-alimentées en temps réel.
         Suivez les étapes suivantes pour obtenir un itinéraire optimisé :
         1. **Affichage des Stations :** Visualisez les stations de vélos sur la carte.
-        2. **Localisation du Conducteur :** Entrez votre position actuelle.
-        3. **Action à Entreprendre :** Sélectionnez l'action (collecter ou déposer des vélos).
+        2. **Localisation du Conducteur :** La position du conducteur est générée aléatoirement à Nancy.
+        3. **Action à Entreprendre :** Sélectionnez l'action (Collecter ou Déposer des vélos).
         4. **Calculer l'Itinéraire :** Obtenez l'itinéraire optimisé.
         5. **Visualiser l'Itinéraire :** Visualisez l'itinéraire sur la carte avec les détails.
     """)
@@ -51,74 +58,56 @@ def main():
     if not stations_df.empty:
         stations_df = classify_station_balance(stations_df)
 
-        # Sidebar for user inputs
-        st.sidebar.title("Options")
+        # Position aléatoire du conducteur dans Nancy
+        driver_coords = get_random_position_in_nancy()
 
-        # Localisation du conducteur
-        with st.sidebar.expander("📍 Localisation du Conducteur", expanded=True):
-            geolocator = Nominatim(user_agent="nancy_bike_app")
-            default_location = geolocator.geocode("Nancy, France")
-            if default_location:
-                driver_lat, driver_lng = default_location.latitude, default_location.longitude
-            else:
-                st.sidebar.error("Impossible de localiser Nancy, France.")
-                driver_lat, driver_lng = 48.6844, 6.1844  # Coordonnées de repli
-            driver_lat = st.number_input("Latitude", value=driver_lat, format="%.6f")
-            driver_lng = st.number_input("Longitude", value=driver_lng, format="%.6f")
-            driver_coords = (driver_lat, driver_lng)
+        # Créer la carte initiale avec les stations et la position du conducteur
+        nancy_map = create_nancy_map()
+        nancy_map = add_bike_stations_to_map(stations_df, nancy_map)
+        nancy_map = add_driver_position(nancy_map, driver_coords)
 
-        # Action à entreprendre et calcul itinéraire
-        with st.sidebar.expander("🔄 Action & Itinéraire", expanded=True):
-            action = st.selectbox("Action à entreprendre", ("collect", "deposit"))
-            calculate = st.button("✨ Calculer l'itinéraire")
+        # Afficher la carte initiale avec les stations
+        st.header("🗺️ Carte des Stations de Vélos et Position du Conducteur")
+        folium_static(nancy_map, width=950, height=650)
 
-        # If the user hasn't clicked "Calculer l'itinéraire", show the initial map
-        if not calculate:
-            # Créer la carte initiale avec les stations et la position du conducteur
-            nancy_map = create_nancy_map()
-            nancy_map = add_bike_stations_to_map(stations_df, nancy_map)
-            nancy_map = add_driver_position(nancy_map, driver_coords)
+        # Choix de l'action (menu déroulant en français)
+        action = st.selectbox("Sélectionner l'action", ("Collecter", "Déposer"))
 
-            # Afficher la carte initiale avec les stations
-            st.header("🗺️ Carte des Stations de Vélos et Position du Conducteur")
-            folium_static(nancy_map, width=950, height=650)
-
-        # Calculer et afficher l'itinéraire si l'utilisateur a cliqué sur "Calculer l'itinéraire"
-        if calculate:
+        # Bouton pour calculer l'itinéraire
+        if st.button("✨ Calculer l'itinéraire"):
             with st.spinner("Calcul en cours..."):
                 try:
                     # Créer le graphe réseau routier de Nancy
                     G = create_nancy_graph()
-                    best_action = find_best_station(G, driver_coords, stations_df, action)
+                    best_action = find_best_station(G, driver_coords, stations_df, 'collect' if action == 'Collecter' else 'deposit')
 
                     if best_action:
-                        # Afficher les détails de la station dans la sidebar
-                        with st.sidebar:
-                            st.subheader("📄 Détails de la Station Sélectionnée")
-                            station_name = best_action['station_name'].split(' - ', 1)[-1] if ' - ' in best_action['station_name'] else best_action['station_name']
-                            st.write(f"**Station:** {station_name}")
-                            st.write(f"**Action:** {'Collecter' if action == 'collect' else 'Déposer'}")
-                            st.write(f"**Distance:** {best_action['distance_m']:.2f} mètres")
-                            st.write(f"**Vélos:** {best_action['bikes']}")
-
                         # Créer la carte avec l'itinéraire
                         nancy_map = create_nancy_map()
                         nancy_map = add_bike_stations_to_map(stations_df, nancy_map)
                         nancy_map = add_driver_position(nancy_map, driver_coords)
 
                         # Ajouter l'itinéraire à la carte
-                        nancy_map = add_route_to_map(nancy_map, G, best_action['path'], color='blue' if action == 'collect' else 'green')
+                        nancy_map = add_route_to_map(nancy_map, G, best_action['path'], color='blue' if action == 'Collecter' else 'green')
 
                         # Ajouter la légende à la carte
                         nancy_map = add_map_legend(nancy_map)
 
-                        # Afficher la carte mise à jour avec l'itinéraire sur la page principale
+                        # Afficher la carte mise à jour avec l'itinéraire
                         st.header("🛣️ Carte avec Itinéraire Optimisé")
                         folium_static(nancy_map, width=960, height=600)
 
+                        # Afficher les détails de la station
+                        st.subheader("📄 Détails de la Station Sélectionnée")
+                        station_name = best_action['station_name'].split(' - ', 1)[-1] if ' - ' in best_action['station_name'] else best_action['station_name']
+                        st.write(f"**Station:** {station_name}")
+                        st.write(f"**Action:** {action}")
+                        st.write(f"**Distance:** {best_action['distance_m']:.2f} mètres")
+                        st.write(f"**Nombre de vélos dans la station:** {best_action['bikes']}")
+
                         st.success("Itinéraire optimisé calculé avec succès ! 🎉")
                     else:
-                        st.info(f"Aucune station appropriée trouvée pour l'action '{'Collecter' if action == 'collect' else 'Déposer'}'.")
+                        st.info(f"Aucune station appropriée trouvée pour l'action '{action}'.")
                 except Exception as e:
                     st.error(f"Une erreur est survenue lors du calcul de l'itinéraire : {e}")
 
